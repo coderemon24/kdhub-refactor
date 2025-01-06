@@ -31,6 +31,7 @@ use App\Http\Livewire\Admin\CreateServiceComponent;
 use App\Http\Livewire\GoogleAdsManagementComponent;
 use App\Http\Livewire\SocialMediaMarketingComponent;
 use App\Http\Livewire\Admin\Blog\CreateBlogComponent;
+use App\Http\Livewire\Admin\ManageServiceCompontent;
 use App\Http\Livewire\DigitalMarketingConsultingComponent;
 use App\Http\Livewire\EcommerceOptimizationServiceComponent;
 use App\Http\Livewire\Admin\ServiceCategory\ServiceCategoryComponent;
@@ -104,7 +105,7 @@ Route::middleware(['auth:sanctum', 'authAdmin', 'verified',])->group(function ()
         Route::get('/service-category', ServiceCategoryComponent::class)->name('service.category.index');
         Route::get('/service-category/create', CreateServiceCategoryComponent::class)->name('service.category.create');
         Route::get('/service-category/edit/{id}', EditServiceCategoryComponent::class)->name('service.category.edit');
-        
+        Route::get('/manage-services', ManageServiceCompontent::class)->name('service.manage.show');
         
     });
 

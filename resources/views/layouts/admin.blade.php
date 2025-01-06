@@ -111,7 +111,7 @@
                         </a>
                     </li>
                     <li class="nav-item list-unstyled">
-                        <a class="nav-link pl-4 @if(request()->routeIs('service.manage.*')) active @endif" href="{{route("service.category.index")}}">
+                        <a href="{{route("service.manage.show")}}" class="nav-link pl-4 @if(request()->routeIs('service.manage.*')) active @endif">
                             <i class="fas fa-users"></i>
                             <span>Manage Services</span>
                         </a>
