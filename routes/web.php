@@ -4,35 +4,38 @@ use App\Http\Livewire\HomeComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\AboutusComponent;
 use App\Http\Livewire\ContactComponent;
+use App\Http\Livewire\Blog\BlogsComponent;
 use App\Http\Livewire\Admin\WhyusComponent;
 use App\Http\Livewire\SeoServicesComponent;
 use App\Http\Livewire\Admin\OrdersComponent;
 use App\Http\Livewire\PaidEstimateComponent;
 use App\Http\Livewire\Admin\ServicesComponent;
 use App\Http\Livewire\Admin\SettingsComponent;
+use App\Http\Livewire\ServiceDetailsComponent;
+use App\Http\Livewire\Admin\Blog\BlogComponent;
 use App\Http\Livewire\Admin\DashboardComponent;
 use App\Http\Livewire\Admin\EditTeamComponenet;
 use App\Http\Livewire\Admin\EditWhyusComponent;
 use App\Http\Livewire\WebsiteServicesComponent;
+use App\Http\Livewire\Blog\BlogDetailsComponent;
 use App\Http\Livewire\ContentMarketingComponent;
 use App\Http\Livewire\Admin\CreateTeamComponenet;
 use App\Http\Livewire\Admin\CreateWhyusComponent;
 use App\Http\Livewire\Admin\EditServiceComponent;
 use App\Http\Livewire\Admin\ManageTeamComponenet;
+use App\Http\Livewire\Admin\CompanyStatsComponent;
 use App\Http\Controllers\AdminGenerateOrderInvoice;
-use App\Http\Livewire\Admin\Blog\BlogComponent;
-use App\Http\Livewire\Admin\Blog\CreateBlogComponent;
 use App\Http\Livewire\Admin\Blog\EditBlogComponent;
 use App\Http\Livewire\Admin\Client\ClientComponent;
-use App\Http\Livewire\Admin\CompanyStatsComponent;
 use App\Http\Livewire\Admin\CreateServiceComponent;
-use App\Http\Livewire\Blog\BlogDetailsComponent;
-use App\Http\Livewire\Blog\BlogsComponent;
 use App\Http\Livewire\GoogleAdsManagementComponent;
 use App\Http\Livewire\SocialMediaMarketingComponent;
+use App\Http\Livewire\Admin\Blog\CreateBlogComponent;
 use App\Http\Livewire\DigitalMarketingConsultingComponent;
 use App\Http\Livewire\EcommerceOptimizationServiceComponent;
-use App\Http\Livewire\ServiceDetailsComponent;
+use App\Http\Livewire\Admin\ServiceCategory\ServiceCategoryComponent;
+use App\Http\Livewire\Admin\ServiceCategory\EditServiceCategoryComponent;
+use App\Http\Livewire\Admin\ServiceCategory\CreateServiceCategoryComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,6 +100,12 @@ Route::middleware(['auth:sanctum', 'authAdmin', 'verified',])->group(function ()
         
         //  company stats
         Route::get('/company-stats', CompanyStatsComponent::class)->name('company.stats');
+        //  service category
+        Route::get('/service-category', ServiceCategoryComponent::class)->name('service.category.index');
+        Route::get('/service-category/create', CreateServiceCategoryComponent::class)->name('service.category.create');
+        Route::get('/service-category/edit/{id}', EditServiceCategoryComponent::class)->name('service.category.edit');
+        
+        
     });
 
     // team 

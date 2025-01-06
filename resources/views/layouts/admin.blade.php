@@ -28,6 +28,12 @@
         .active>i{
             color: white !important;
         }
+        .rotate{
+            transform: rotate(180deg) !important;
+        }
+        .fa-angle-down{
+            transition: all 0.3s ease-in-out;
+        }
     </style>
     
     @livewireStyles
@@ -39,7 +45,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav overflow-hidden bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('dashboard')}}">
@@ -88,7 +94,29 @@
             <li class="nav-item">
                 <a class="nav-link @if(request()->routeIs('blog.*')) active @endif" href="{{route("blog.index")}}">
                     <i class="fas fa-users"></i>
-                    <span>Manage Blogs</span></a>
+                    <span>Manage Blogs</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" id="providedServices" class="nav-link @if(request()->routeIs('service.*')) active @endif">
+                    <i class="fas fa-clipboard"></i>
+                    <span class="mr-2">Service We Provide</span>
+                    <i class="fas fa-angle-down down_angle"></i>
+                </a>
+                <ul class="sub-menu pl-0">
+                    <li class="nav-item  list-unstyled">
+                        <a class="nav-link pl-4 @if(request()->routeIs('service.category.*')) active @endif" href="{{route("service.category.index")}}">
+                            <i class="fas fa-users"></i>
+                            <span>Service Categories</span>
+                        </a>
+                    </li>
+                    <li class="nav-item list-unstyled">
+                        <a class="nav-link pl-4 @if(request()->routeIs('service.manage.*')) active @endif" href="{{route("service.category.index")}}">
+                            <i class="fas fa-users"></i>
+                            <span>Manage Services</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
 
             <!-- Nav Item - Charts -->
@@ -106,7 +134,8 @@
             <li class="nav-item">
                 <a class="nav-link @if(request()->routeIs('admin.services') || request()->routeIs('admin.service_edit') || request()->routeIs('admin.service_create')) active @endif" href="{{route("admin.services")}}">
                     <i class="fas fa-fw fa-book"></i>
-                    <span>Services section</span></a>
+                    <span>Services section</span>
+                </a>
             </li>
             <li class="nav-item">
                 <a href="{{route("company.stats")}}" class="nav-link @if(request()->routeIs('company.*')) active @endif" >
@@ -283,6 +312,24 @@
     
     
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    
+    <script>
+        $( document ).ready(function() {
+            let menu_item = $('#providedServices');
+            if(menu_item.hasClass('active')) {
+                $('.sub-menu').slideDown();
+            }else{
+                $('.sub-menu').slideUp();
+            }
+            
+            $('#providedServices').click(function(){
+                $('.sub-menu').removeClass('d-none').slideToggle();
+                $('.down_angle').toggleClass('rotate');
+            })
+        })
+    </script>
+    
+    
 
     @stack('scripts') 
     
