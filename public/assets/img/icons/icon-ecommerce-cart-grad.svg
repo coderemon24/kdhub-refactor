@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="129" height="87" viewBox="0 0 129 87">
+  <defs>
+    <linearGradient id="linear-gradient" y1="1" x2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#39af2f"></stop>
+      <stop offset="0.34" stop-color="#5dbf28"></stop>
+      <stop offset="1" stop-color="#cdef11"></stop>
+    </linearGradient>
+  </defs>
+  <path id="icon-ecommerce-cart-grad" d="M10.724,86A10.724,10.724,0,0,1,0,75.276V68H9V8a8.005,8.005,0,0,1,8.006-8h92.988A8,8,0,0,1,118,8V68h10v7.276A10.724,10.724,0,0,1,117.276,86ZM6,75.276A4.729,4.729,0,0,0,10.724,80H117.276A4.73,4.73,0,0,0,122,75.276V74H6ZM15,8V68h97V8a2.007,2.007,0,0,0-2.005-2H17.006A2.007,2.007,0,0,0,15,8ZM69.458,59.052a3.6,3.6,0,1,1,3.6,3.6A3.6,3.6,0,0,1,69.458,59.052Zm-18.921,0a3.6,3.6,0,1,1,3.6,3.6A3.6,3.6,0,0,1,50.538,59.052Zm2.928-5.107a7.723,7.723,0,0,1-3.91-14.387l-6.93-18.768a5.763,5.763,0,0,0-5.387-3.753v-6a11.788,11.788,0,0,1,11.015,7.675l.037.1H79.544a7.548,7.548,0,0,1,7.423,8.907L85.03,38.3a7.547,7.547,0,0,1-7.424,6.189H53.465a1.73,1.73,0,1,0,0,3.46h23.2v6Zm2.09-15.46H77.606a1.548,1.548,0,0,0,1.522-1.27l1.937-10.578a1.545,1.545,0,0,0-1.521-1.826H50.506Z" transform="translate(0.5 0.5)" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1" fill="url(#linear-gradient)"></path>
+</svg>

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "pixwell-elements/affiliate-list-item",
+  "description": "Add a marketplace for the Affiliate List block.",
+  "version": "0.1.0",
+  "parent": [
+    "pixwell-elements/affiliate-list"
+  ],
+  "title": "Affiliate List Item",
+  "category": "widgets",
+  "icon": "ellipsis",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "pixwell-core",
+  "editorScript": "file:./index.js",
+  "attributes": {
+    "logo": {
+      "type": "string",
+      "default": ""
+    },
+    "logoAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "price": {
+      "type": "string",
+      "default": "$99"
+    },
+    "salePrice": {
+      "type": "string",
+      "default": ""
+    },
+    "link": {
+      "type": "string",
+      "default": "#"
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": "See It"
+    },
+    "isInternal": {
+      "type": "boolean",
+      "default": false
+    },
+    "isSponsored": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

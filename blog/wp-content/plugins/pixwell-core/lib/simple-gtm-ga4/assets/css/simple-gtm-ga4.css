@@ -1,0 +1,189 @@
+.rb-panel-wrap {
+    position: relative;
+    display: block;
+    padding: 30px 20px;
+}
+
+.rb-panel-header h1 {
+    font-size: 2.5rem;
+    line-height: 1.1;
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.rb-panel-heading i {
+    font-size: 2.2rem;
+    width: 1em;
+    height: 1em;
+    margin-right: 7px;
+}
+
+.rb-panel-wrap .sub-heading {
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.simple-gtm-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 740px;
+    margin-top: 50px;
+    padding: 40px 40px 60px;
+    border-top: 5px solid #524cff;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 20px #0001;
+}
+
+.simple-gtm-desc {
+    font-size: 18px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: #888;
+}
+
+.rb-form-item {
+    display: block;
+    margin-bottom: 40px;
+}
+
+.rb-form-item label:not(.rb-switch) {
+    font-size: 1rem;
+    font-weight: 700;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.rb-form-inline-label {
+    font-size: 1rem;
+    font-weight: 700;
+    display: inline-flex;
+    margin-right: 10px;
+}
+
+.rb-form-item input:where(:not([type='checkbox'])) {
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 100%;
+    padding: 0;
+    border: none;
+    border-bottom: 2px solid #111;
+    border-radius: 0;
+    outline: none !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.rb-form-item input::placeholder {
+    color: #eee;
+}
+
+.rb-form-item input:focus {
+    border-color: #524cff;
+}
+
+.simple-gtm-submit {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 40px;
+    cursor: pointer;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    background-color: #78d098;
+}
+
+select.rb-selection {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.simple-gtm-submit:hover,
+.simple-gtm-submit:focus {
+    background-color: #1ed4a0;
+}
+
+#rb-form-response,
+#simple-gtm-ga4-response {
+    font-size: 1rem;
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    right: 10px;
+}
+
+.rb-form-response,
+.simple-gtm-info {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    padding: 1px 25px;
+    color: #fff;
+    border-radius: 7px;
+    background-color: #524cff;
+}
+
+.rb-form-response i {
+    margin-right: 4px;
+}
+
+.simple-gtm-info.notice-error {
+    background-color: #ff9641;
+}
+
+.rb-form-infomation {
+    font-size: 15px;
+    margin-top: 25px;
+    color: #888;
+}
+
+.rb-form-infomation a {
+    color: #888;
+}
+
+.rb-form-infomation a:hover {
+    color: #78d098;
+}
+
+.rb-form-tip-content {
+    font-size: 14px;
+    font-weight: 400;
+    position: absolute;
+    z-index: 10;
+    left: -20px;
+    display: block;
+    visibility: hidden;
+    width: 240px;
+    padding: 20px;
+    cursor: auto;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    opacity: 0;
+    color: #888;
+    border-radius: 7px;
+    background: #fafafa;
+    box-shadow: 1px 4px 10px #0001;
+}
+
+.rb-form-tip {
+    position: relative;
+    cursor: pointer;
+}
+
+.rb-form-tip:hover .rb-form-tip-content {
+    visibility: visible;
+    opacity: 1;
+}
+
+.rb-form-tip i {
+    font-size: 14px;
+    color: #78d098;
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.034" y1="1" x2="0.946" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#39af2f"></stop>
+      <stop offset="0.34" stop-color="#5dbf28"></stop>
+      <stop offset="1" stop-color="#cdef11"></stop>
+    </linearGradient>
+  </defs>
+  <path id="icon-mountain-grad" d="M79,670.16V656.5h23l-8.457-10.286L102,636.5H73v33.66L53.882,706.237,42.674,685.255,1,764.5H129Zm9.909-20.136.39.476H79v-8h9.821l-3.137,3.6Zm1.444,54.37-5.22,2.32-8.87-13.8L65.9,696.372,76,677.312ZM10.935,758.5l31.78-60.433,7.778,14.562L26.181,758.5Zm22.037,0,28.857-54.447,11.911-3.97,9.129,14.2,10.3-4.578L119.031,758.5Z" transform="translate(-1.001 -636.5)" fill="url(#linear-gradient)"></path>
+</svg>

@@ -1,0 +1,285 @@
+.wprm-recipe {
+    position: relative;
+    margin-block-end: var(--cp-spacing, 1.5rem);
+}
+
+[class*='wprm-recipe-template-'] a {
+    color: var(--g-color);
+}
+
+.wprm-recipe-template-basic {
+    padding: 30px;
+    border-radius: 5px;
+    background-color: #8881;
+}
+
+.wprm-recipe-template-compact,
+.wprm-recipe-template-compact-howto {
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 20px #0001;
+}
+
+.wprm-container-float-left {
+    margin: 0 20px 20px 0;
+}
+
+.wprm-container-float-right {
+    margin: 0 0 20px 20px;
+}
+
+.wprm-recipe-instruction-image img,
+.wprm-recipe-image img {
+    border-radius: 3px;
+}
+
+.wprm-recipe-meta-container {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+}
+
+.wprm-recipe-meta-container > * {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-top: 1px solid #8884;
+}
+
+.wprm-recipe-block-container-inline {
+    margin-right: 0;
+}
+
+.wprm-recipe-print svg path {
+    fill: #fff;
+}
+
+a.wprm-recipe-link {
+    padding: 7px 20px;
+    text-align: center;
+    color: #fff !important;
+    border-radius: 3px;
+    background: var(--g-color);
+    text-decoration-color: transparent !important;
+}
+
+a.wprm-recipe-print {
+    border: none !important;
+    background-color: #000 !important;
+}
+
+[data-theme='dark'] a.wprm-recipe-print:not(:hover) {
+    background-color: #00aff0 !important;
+}
+
+a.wprm-recipe-print:hover {
+    background: var(--g-color);
+}
+
+.wprm-template-chic-buttons a.wprm-recipe-link:not(.wprm-recipe-print) {
+    color: #000 !important;
+}
+
+a.wprm-recipe-link:hover,
+a.wprm-recipe-link:focus {
+    opacity: .7;
+}
+
+.wprm-recipe-name {
+    --cp-spacing: 0;
+}
+
+body ul[class*='wprm-recipe-'] {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+    list-style: none;
+    gap: 8%;
+}
+
+ul[class*='wprm-recipe-']:not(.wprm-recipe-instructions) > li {
+    display: inline-flex;
+    align-items: center;
+    flex-flow: row wrap;
+    width: 46%;
+    margin-left: 0;
+}
+
+.wprm-recipe-calories,
+.wprm-recipe-ingredient-amount {
+    font-weight: bold;
+}
+
+.wprm-recipe-ingredient-notes {
+    font-style: italic;
+    margin-left: 10px;
+}
+
+.wprm-recipe-details-unit,
+.wprm-recipe-ingredient-unit,
+.wprm-recipe-ingredient-name {
+    margin-left: min(3px, .2em);
+}
+
+ul[class*='wprm-recipe-']:not(.wprm-recipe-instructions) > li:before {
+    display: inline-flex;
+    width: 8px;
+    height: 8px;
+    margin-right: 7px;
+    content: '';
+    border-radius: 10px;
+    background-color: #0a875a;
+}
+
+.wprm-spacer {
+    margin-block-end: min(7px, 1rem);
+}
+
+.wprm-recipe-calories-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-top: 2px solid;
+}
+
+.wprm-recipe-instructions-container,
+.wprm-recipe-equipment-container,
+.wprm-recipe-ingredients-container,
+.wprm-private-notes-container,
+.wprm-recipe-notes-container,
+.wprm-recipe-video-container {
+    margin-block-end: 20px;
+}
+
+.wprm-recipe-equipment-grid,
+.wprm-recipe-equipment-container {
+    padding-top: 10px;
+}
+
+ul.wprm-recipe-instructions li {
+    margin-left: 1.5em;
+}
+
+ul.wprm-recipe-instructions li {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 1.2em;
+    padding-top: 15px;
+    border-top: 1px solid #8884;
+}
+
+ul.wprm-recipe-instructions li:first-child {
+    padding-top: 0;
+    border-top: 0;
+}
+
+.wprm-recipe-template-roundup-clean .wprm-summary-container {
+    margin-top: -3px;
+    padding: 20px;
+    border: 1px solid #8884;
+    border-top: 0;
+    border-radius: 3px;
+}
+
+.wprm-recipe-template-roundup-button a {
+    width: max(200px, 50%);
+    text-align: center;
+}
+
+.wprm-recipe-template-snippet-basic-buttons,
+.wprm-recipe-template-snippet-basic {
+    text-align: center;
+}
+
+.wprm-recipe-template-snippet-basic-buttons a,
+.wprm-recipe-template-snippet-basic a {
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.wprm-recipe-template-chic {
+    padding: 30px;
+    border: 1px solid #8884;
+    border-radius: 3px;
+}
+
+.wprm-template-chic-buttons {
+    font-size: 13px;
+}
+
+.wprm-recipe-counter {
+    font-size: 1.5rem;
+}
+
+.wprm-recipe-equipment-grid-row,
+.wprm-recipe-details-container-table {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.wprm-recipe-equipment-name {
+    margin-top: 3px;
+}
+
+.wprm-icon-shortcode-separate {
+    width: 100%;
+}
+
+.wprm-call-to-action {
+    border-radius: 5px;
+    background-color: var(--g-color);
+}
+
+.wprm-unit-conversion-container button {
+    line-height: 1;
+    margin: 0 2px;
+    padding: 9px;
+    border-radius: 3px;
+}
+
+.wprm-unit-conversion-container button.wprmpuc-active {
+    background: var(--g-color) !important;
+}
+
+.comment-form-wprm-rating + .rb-form-rating {
+    display: none;
+}
+
+[data-theme='dark'] .wprm-decoration-line {
+    border-color: #8888 !important;
+}
+
+@media (max-width: 1024px) {
+    ul[class*='wprm-recipe-']:not(.wprm-recipe-instructions) > li {
+        width: 100%;
+    }
+
+    .wprm-recipe-template-chic,
+    .wprm-recipe-template-basic {
+        padding: 20px;
+    }
+
+    .wprm-container-float-left,
+    .wprm-container-float-right {
+        float: none;
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    .wprm-container-float-left img,
+    .wprm-container-float-right img {
+        max-width: 150px;
+        margin: 0;
+    }
+
+    [class*='wprm-recipe-template']:not(.wprm-recipe-template-chic) a.wprm-recipe-print {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        margin: 0;
+    }
+}
