@@ -98,7 +98,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" id="providedServices" class="nav-link @if(request()->routeIs('service.*')) active @endif">
+                <a href="#" id="providedServices" class="nav-link @if(request()->routeIs('service.*') || request()->routeIs('section.*')) active @endif">
                     <i class="fas fa-clipboard"></i>
                     <span class="mr-2">Service We Provide</span>
                     <i class="fas fa-angle-down down_angle"></i>
@@ -108,6 +108,12 @@
                         <a class="nav-link pl-4 @if(request()->routeIs('service.category.*')) active @endif" href="{{route("service.category.index")}}">
                             <i class="fas fa-users"></i>
                             <span>Service Categories</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  list-unstyled">
+                        <a class="nav-link pl-4 @if(request()->routeIs('section.*')) active @endif" href="{{route("section.index")}}">
+                            <i class="fas fa-users"></i>
+                            <span>Manage Section</span>
                         </a>
                     </li>
                     <li class="nav-item list-unstyled">
