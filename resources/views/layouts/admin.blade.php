@@ -110,16 +110,18 @@
                             <span>Service Categories</span>
                         </a>
                     </li>
-                    <li class="nav-item  list-unstyled">
+                    
+                    {{-- <li class="nav-item  list-unstyled">
                         <a class="nav-link pl-4 @if(request()->routeIs('section.*')) active @endif" href="{{route("section.index")}}">
                             <i class="fas fa-users"></i>
                             <span>Manage Section</span>
                         </a>
-                    </li>
+                    </li> --}}
+                    
                     <li class="nav-item list-unstyled">
-                        <a href="{{route("service.manage.show")}}" class="nav-link pl-4 @if(request()->routeIs('service.manage.*')) active @endif">
+                        <a href="{{route("service.manage.show")}}" class="nav-link pl-4 @if(request()->routeIs('service.manage.*') || request()->routeIs('section.*')) active @endif">
                             <i class="fas fa-users"></i>
-                            <span>Manage Services</span>
+                            <span>Manage Page Section</span>
                         </a>
                     </li>
                 </ul>

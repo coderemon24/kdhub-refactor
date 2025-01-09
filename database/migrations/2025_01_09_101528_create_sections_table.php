@@ -14,10 +14,16 @@ return new class extends Migration
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
             
+            $table->unsignedBigInteger('service_category_id')->nullable();
+            
             $table->string('section_name')->nullable();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->text('description')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->integer('order')->nullable();
+            
+            $table->foreign('service_category_id')->references('id')->on('service_categories')->cascadeOnDelete()->cascadeOnUpdate();
             
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

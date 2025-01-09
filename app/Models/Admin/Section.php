@@ -2,8 +2,9 @@
 
 namespace App\Models\Admin;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\ServiceCategory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Section extends Model
 {
@@ -19,4 +20,9 @@ class Section extends Model
         'order',
         'status',
     ];
+    
+    public function service_category()
+    {
+        return $this->belongsTo(ServiceCategory::class, 'service_category_id');
+    }
 }

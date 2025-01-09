@@ -111,8 +111,8 @@ Route::middleware(['auth:sanctum', 'authAdmin', 'verified',])->group(function ()
         Route::get('/manage-services', ManageServiceCompontent::class)->name('service.manage.show');
         
         //  sections.route
-        Route::get('/sections', SectionComponent::class)->name('section.index');
-        Route::get('/section/create', CreateSectionComponent::class)->name('section.create');
+        Route::get('/sections/{id}', SectionComponent::class)->name('section.index');
+        Route::get('/section/create/{id}', CreateSectionComponent::class)->name('section.create');
         Route::get('/section/edit/{id}', EditSectionComponent::class)->name('section.edit');
         
     });
