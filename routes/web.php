@@ -29,15 +29,18 @@ use App\Http\Livewire\Admin\Blog\EditBlogComponent;
 use App\Http\Livewire\Admin\Client\ClientComponent;
 use App\Http\Livewire\Admin\CreateServiceComponent;
 use App\Http\Livewire\GoogleAdsManagementComponent;
+use App\Http\Livewire\Admin\ManageServiceCompontent;
 use App\Http\Livewire\SocialMediaMarketingComponent;
 use App\Http\Livewire\Admin\Blog\CreateBlogComponent;
-use App\Http\Livewire\Admin\ManageServiceCompontent;
-use App\Http\Livewire\Admin\Section\CreateSectionComponent;
-use App\Http\Livewire\Admin\Section\EditSectionComponent;
 use App\Http\Livewire\Admin\Section\SectionComponent;
+use App\Http\Livewire\Admin\Section\EditSectionComponent;
 use App\Http\Livewire\DigitalMarketingConsultingComponent;
+use App\Http\Livewire\Admin\Section\CreateSectionComponent;
 use App\Http\Livewire\EcommerceOptimizationServiceComponent;
+use App\Http\Livewire\Admin\SectionContent\SectionContentComponent;
 use App\Http\Livewire\Admin\ServiceCategory\ServiceCategoryComponent;
+use App\Http\Livewire\Admin\SectionContent\EditSectionContentComponent;
+use App\Http\Livewire\Admin\SectionContent\CreateSectionContentComponent;
 use App\Http\Livewire\Admin\ServiceCategory\EditServiceCategoryComponent;
 use App\Http\Livewire\Admin\ServiceCategory\CreateServiceCategoryComponent;
 
@@ -114,6 +117,11 @@ Route::middleware(['auth:sanctum', 'authAdmin', 'verified',])->group(function ()
         Route::get('/sections/{id}', SectionComponent::class)->name('section.index');
         Route::get('/section/create/{id}', CreateSectionComponent::class)->name('section.create');
         Route::get('/section/edit/{id}', EditSectionComponent::class)->name('section.edit');
+        
+        //  sections.contents.route
+        Route::get('/section-contents', SectionContentComponent::class)->name('content.index');
+        Route::get('/section-contents/create', CreateSectionContentComponent::class)->name('content.create');
+        Route::get('/section-contents/edit/{id}', EditSectionContentComponent::class)->name('content.edit');
         
     });
 

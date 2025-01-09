@@ -124,6 +124,12 @@
                             <span>Manage Page Section</span>
                         </a>
                     </li>
+                    <li class="nav-item list-unstyled">
+                        <a href="{{route("service.manage.show")}}" class="nav-link pl-4 @if(request()->routeIs('service.manage.*') || request()->routeIs('section.*')) active @endif">
+                            <i class="fas fa-users"></i>
+                            <span>Section Contents</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
 
