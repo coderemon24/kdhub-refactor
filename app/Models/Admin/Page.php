@@ -18,6 +18,7 @@ class Page extends Model
         'slug',
         'meta_title',
         'meta_description',
+        'order',
     ];
 
     public function serviceCategory()

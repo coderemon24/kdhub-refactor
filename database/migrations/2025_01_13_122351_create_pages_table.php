@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
+            $table->integer('order')->nullable();
             
             $table->foreign('service_category_id')->references('id')->on('service_categories')->cascadeOnDelete()->cascadeOnUpdate();
             
