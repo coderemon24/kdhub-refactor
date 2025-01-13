@@ -17,6 +17,7 @@ use App\Http\Livewire\Admin\DashboardComponent;
 use App\Http\Livewire\Admin\EditTeamComponenet;
 use App\Http\Livewire\Admin\EditWhyusComponent;
 use App\Http\Livewire\WebsiteServicesComponent;
+use App\Http\Livewire\Admin\Pages\PageComponent;
 use App\Http\Livewire\Blog\BlogDetailsComponent;
 use App\Http\Livewire\ContentMarketingComponent;
 use App\Http\Livewire\Admin\CreateTeamComponenet;
@@ -30,9 +31,11 @@ use App\Http\Livewire\Admin\Client\ClientComponent;
 use App\Http\Livewire\Admin\CreateServiceComponent;
 use App\Http\Livewire\GoogleAdsManagementComponent;
 use App\Http\Livewire\Admin\ManageServiceCompontent;
+use App\Http\Livewire\Admin\Pages\EditPageComponent;
 use App\Http\Livewire\SocialMediaMarketingComponent;
 use App\Http\Livewire\Admin\Blog\CreateBlogComponent;
 use App\Http\Livewire\Admin\Section\SectionComponent;
+use App\Http\Livewire\Admin\Pages\CreatePageComponent;
 use App\Http\Livewire\Admin\Section\EditSectionComponent;
 use App\Http\Livewire\DigitalMarketingConsultingComponent;
 use App\Http\Livewire\Admin\Section\CreateSectionComponent;
@@ -118,7 +121,15 @@ Route::middleware(['auth:sanctum', 'authAdmin', 'verified',])->group(function ()
         Route::get('/section/create/{id}', CreateSectionComponent::class)->name('section.create');
         Route::get('/section/edit/{id}', EditSectionComponent::class)->name('section.edit');
         
-        //  sections.contents.route
+        //  pages.routes
+        Route::get('/pages', PageComponent::class)->name('page.index');
+        Route::get('/page/create', CreatePageComponent::class)->name('page.create');
+        Route::get('/page/edit/{id}', EditPageComponent::class)->name('page.edit');
+        
+        
+        
+        
+        //  sections.contents.route - these routes are not used.
         Route::get('/section-contents', SectionContentComponent::class)->name('content.index');
         Route::get('/section-contents/create', CreateSectionContentComponent::class)->name('content.create');
         Route::get('/section-contents/edit/{id}', EditSectionContentComponent::class)->name('content.edit');

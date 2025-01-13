@@ -8,6 +8,8 @@ class PageComponent extends Component
 {
     public function render()
     {
-        return view('livewire.admin.pages.page-component');
+        return view('livewire.admin.pages.page-component',[
+            'pages' => \App\Models\Admin\Page::all()
+        ])->layout('layouts.admin');
     }
 }

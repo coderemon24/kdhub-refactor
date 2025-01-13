@@ -8,6 +8,6 @@ class CreatePageComponent extends Component
 {
     public function render()
     {
-        return view('livewire.admin.pages.create-page-component');
+        return view('livewire.admin.pages.create-page-component')->layout('layouts.admin');
     }
 }
