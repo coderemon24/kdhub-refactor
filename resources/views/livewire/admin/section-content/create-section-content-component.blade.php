@@ -10,7 +10,7 @@
                     </div>
                     <div class="card-body">
                         
-                        @if (Session::has('message'))
+                        {{-- @if (Session::has('message'))
                         <div class="col-sm-12">
                             <div class="alert  alert-success alert-dismissible fade show" role="alert">
                                 <span class="badge badge-pill badge-success">Success</span> {{Session::get('message')}}
@@ -19,7 +19,7 @@
                                 </button>
                             </div>
                         </div>
-                        @endif
+                        @endif --}}
                         
                         <form wire:submit.prevent="createContent">
                             <div class="form-group">

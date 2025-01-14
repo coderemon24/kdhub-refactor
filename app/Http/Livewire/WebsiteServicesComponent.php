@@ -67,6 +67,8 @@ class WebsiteServicesComponent extends Component
     public $section_8;
     public $section_9;
     public $section_10;
+    public $section_11;
+    public $section_12;
     
     public function mount($slug)
     {
@@ -86,6 +88,8 @@ class WebsiteServicesComponent extends Component
         $this->section_8 = Section::where('page_id', $page->id)->where('order', 8)->first();
         $this->section_9 = Section::where('page_id', $page->id)->where('order', 9)->first();
         $this->section_10 = Section::where('page_id', $page->id)->where('order', 10)->first();
+        $this->section_11 = Section::where('page_id', $page->id)->where('order', 11)->first();
+        $this->section_12 = Section::where('page_id', $page->id)->where('order', 12)->first();
         
         return view('livewire.website-services-component',[
             'stat' => CompanyStat::first(),
@@ -100,6 +104,8 @@ class WebsiteServicesComponent extends Component
             'section_8' => $this->section_8,
             'section_9' => $this->section_9,
             'section_10' => $this->section_10,
+            'section_11' => $this->section_11,
+            'section_12' => $this->section_12,
             'clients' => Client::all(),
         ])->layout('layouts.base');
     }

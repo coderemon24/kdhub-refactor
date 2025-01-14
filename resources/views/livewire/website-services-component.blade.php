@@ -12,7 +12,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <ol>
                   <li><a href="/">Home</a></li>
-                  <li>Website Design & Web Development Services</li>
+                  <li>{{$page->page_name}}</li>
                 </ol>
               </div>
       
@@ -370,8 +370,32 @@
             <div class="container">
                 <div class="google-ads-services mt-3 p-5 mb-3" style="background:#f5f5f5; border-left: 20px solid #f2aa4b;">
                     <div class="row">
-                        
+                        <div class="col-md-6">
+                            <h2><b>
+                                {{$section_8->title}}    
+                            </b></h2>
+                        </div>
                     </div>
+                    
+                    @php
+                        $contents = App\Models\Admin\SectionContent::where('section_id', $section_8->id)
+                        ->where('status','active')->get();
+                    @endphp
+                    @foreach($contents as $content)
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul style="color: #636363;">
+                                <li style="color: #0f7099;"><h4><b>{{ $content->title }}</b></h4></li>
+                                <div class="text-body-tertiary">
+                                    {!! $content->description !!}
+                                </div> 
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="{{asset('assets/image/contents/'.$content->image)}}" class="img-fluid" alt="{{$content->title}}">
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
                 <div class="text-center">
                     <a href="{{route('estimate')}}" class="btn btn-success btn-custom py-2 px-5 mt-5 w-60 fw-bold fs-5">Let's talk about your website design project <i class="bx bx-chevron-right"></i></a>
@@ -402,6 +426,7 @@
                 <h2 class="fw-bold mb-3 mt-4" style="color: #0f7099;">Setting Up All of Your Marketing Channels for Success</h2>
                 <p class="text-body-tertiary">No matter what marketing channel you’re using, offline advertising or digital marketing, you’re often driving people to your site. If your website isn’t the absolute best it can be, you’re ROAS (return on advertising spend) is lower across all channels. Your website needs to act as the main conversion funnel, turning your interested consumers into buyers. A great site will help you to maximize and see success across all of your advertising methods, allowing you to reinvest into growth.</p>
                 <div class="mt-2 pt-5" style="border-bottom: 3px solid #ededed;"></div>
+                
                 <h2 class="fw-bold mb-3 mt-4" style="color: #4d4d4d;">How Much Do Website Design Services Cost?</h2>
                 <p class="text-body-tertiary">Pricing a website project is similar to pricing a home build. It comes down to how big the project is, what features you want, and how long it’ll take to do the job. The average project with Kaizen Digital ranges between $10,000 – $50,000, but can exceed $100,000+ for large projects. Below are some of the main items that impact pricing:</p>
                 <ul class="text-body-tertiary">
@@ -412,8 +437,8 @@
                   <li>Platforms / CMS chosen</li>
                   <li>Data integrations / API integrations</li>
                   <li>SEO needs (more work needed during redesigns)</li>
-                  
                 </ul>
+                
                 <div class="mt-2 pt-5" style="border-bottom: 3px solid #ededed;"></div>
                 <h2 class="fw-bold mb-3 mt-4" style="color: #4d4d4d;">Why Work With Kaizen Digital For Your New Website</h2>
                 <p class="text-body-tertiary">For 20+ years we’ve been the go-to website design company, launching hundreds of websites across all industries. Our in-house team of 125+, all here in the U.S., makes us a reliable choice knowing you’ll have outstanding customer support. From initial planning all the way through ongoing maintenance, we’ll have your back, creating a long-term relationship focused on growing your business.</p>
