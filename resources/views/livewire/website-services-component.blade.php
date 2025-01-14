@@ -21,48 +21,40 @@
           <!-- End Breadcrumbs Section -->
     
           <!-- web information section  -->
+      @php
+          $contens = App\Models\Admin\SectionContent::where('section_id', $section_1->id)->get();
+      @endphp
+      
+      @foreach($contens as $content)
         <section id="adds-info" class="section-bg">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h2 class="adds-info-title mb-3">Web Design & Website Development Services</h2>
-                        <p class="adds-info-content mb-3">Need a web design company with 20+ years of experience? <b> Our professional website design services increase your leads and sales</b> -  <i>crushing the competition since 2004.</i></p>
-                        <ul class="adds-info-list mb-5">
-                            <li><i class="bx bx-check"></i> <b>Custom designed & developed websites</b></li>
-                            <li><i class="bx bx-check"></i> <b>SEO optimized for top Google rankings</b></li>
-                            <li><i class="bx bx-check"></i> <b>An in-house team of web designers, developers, & SEM/SEO pros</b></li>
-                        </ul>
+                        <h2 class="adds-info-title mb-3">
+                            {{$content->title}}
+                        </h2>
+                        <div class="adds-info-content mb-5 pb-3">
+                            {!! $content->description !!}
+                        </div>
+                        
                         <a href="{{route('estimate')}}" class="adds-info-btn mb-3 mt-5">Talk with our Google Ads management experts »</a>
                     </div>
                     <div class="col-md-6">
                         <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
-    
-                            <div class="col-lg-4 col-md-4 col-6">
-                            <div class="client-logo">
-                                <img src="assets/img/clients/google-premier-partner-badge.gif" class="img-fluid" alt="" data-aos="flip-right">
-                            </div>
-                            </div>
-                
-                            <div class="col-lg-4 col-md-4 col-6">
-                            <div class="client-logo">
-                                <img src="assets/img/clients/forbes-google-ads-management.gif" class="img-fluid" alt="" data-aos="flip-right" data-aos-delay="100">
-                            </div>
-                            </div>
-                
-                            <div class="col-lg-4 col-md-4 col-6">
-                            <div class="client-logo">
-                                <img src="assets/img/clients/clutch-5-stars-gray.webp" class="img-fluid" alt="" data-aos="flip-right" data-aos-delay="200">
-                            </div>
-                            </div>
-            
-                
+                            @foreach(json_decode($content->multi_image) as $single_img)
+                                <div class="col-lg-4 col-md-4 col-6">
+                                    <div class="client-logo">
+                                        <img src="{{asset('assets/image/contents/'.$single_img)}}" class="img-fluid" alt="" data-aos="flip-right" data-aos-delay="100">
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
-                        <img src="assets/img/website-design-company-3.webp" alt="google" class="img-fluid">
+                        <img src="{{asset('assets/image/contents/'.$content->image)}}" alt="google" class="img-fluid">
                     </div>
                 </div>
             </div>
         </section>
-    
+      @endforeach
         <!-- Company status section -->
         <section id="company-status" style="background-color: #757575; color: white; padding: 20px 0;">
             <div class="container">
@@ -70,21 +62,21 @@
                     <h2>Company <br> Stats:</h2>
                     <div class="d-flex flex-column align-items-center text-center">
                         <div class="d-flex align-items-center mb-2">
-                            <img src="assets/img/company/icon-target.png.webp" alt="company" class="img-fluid me-2">
+                            <img src="{{asset('assets/img/company/icon-target.png.webp')}}" alt="company" class="img-fluid me-2">
                             <h3 class="mb-0 ms-3" style="font-weight: bolder; font-size:45px;">{{ $stat->years_of_glory }}</h3>
                         </div>
                         <p class="text-center">Years of Glory</p>
                     </div>
                     <div class="d-flex flex-column align-items-center text-center">
                         <div class="d-flex align-items-center mb-2">
-                            <img src="assets/img/company/icon-relationship.png.webp" alt="company" class="img-fluid me-2">
+                            <img src="{{asset('assets/img/company/icon-relationship.png.webp')}}" alt="company" class="img-fluid me-2">
                             <h3 class="mb-0 ms-3" style="font-weight: bolder; font-size:45px;">{{ $stat->happy_clients }}</h3>
                         </div>
                         <p class="text-center">Happy Clients</p>
                     </div>
                     <div class="d-flex flex-column align-items-center text-center">
                         <div class="d-flex align-items-center mb-2">
-                            <img src="assets/img/company/icon-trophy.png.webp" alt="company" class="img-fluid me-2">
+                            <img src="{{asset('assets/img/company/icon-trophy.png.webp')}}" alt="company" class="img-fluid me-2">
                             <h3 class="mb-0 ms-3" style="font-weight: bolder; font-size:45px;">{{ $stat->ads_spend }}</h3>
                         </div>
                         <p class="text-center">Google Ads Spend</p>
@@ -96,26 +88,26 @@
         <!-- More web information section  -->
         <section id="more-adds-info">
             <div class="container text-center">
-                <h2 class="mb-4 fw-bold">Let's make your web design project a success</h2>
-                <p class="mb-5" style="color: #737373;">At Kaizen Digital, we’re a professional web design agency that focuses on lead generation and eCommerce website design services to grow your business online. Our expert team of in-house web designers, developers, project managers, and search marketing strategists use the latest technology to create websites that drive results such as increased traffic, leads and online sale. We’re skilled in development across all popular CMS platforms including WordPress, Shopify, BigCommerce, Magento, and many others. No matter the type of website you need, the Kaizen Digital team will take your online presence to the next level.</p>
+                <h2 class="mb-4 fw-bold">{{ $section_2->title }}</h2>
+                <p class="mb-5" style="color: #737373;">
+                    {!! $section_2->description !!}
+                </p>
                 <div class="row">
-                    <div class="col-md-4">
-                        <img src="assets/img/icons/website-design-icon-e1626877769222.png.webp" alt="icons" class="img-fluid">
-                        <h3 class="fw-bolder mt-4 mb-3 text-body-tertiary">Custom Website Design Services</h3>
-                        <p>Need a custom web design and development company? At Kaizen Digital, we don't use templates. Our web designers create custom graphics and layouts to match your brand, goals, and turn visitors engaged customers.</p>
-                    </div>
-    
-                    <div class="col-md-4">
-                        <img src="assets/img/icons/web-design-ecommerce-e1626877790587.png.webp" alt="icons" class="img-fluid">
-                        <h3 class="fw-bolder mt-4 mb-3 text-body-tertiary">The Ultimate eCommerce Experts</h3>
-                        <p>We've been the leading eCommerce agency since 2004, developing hundreds of eCommerce websites and thousands of custom features. If you're looking for an eCommerce site that performs, look no further.</p>
-                    </div>
-    
-                    <div class="col-md-4">
-                        <img src="assets/img/icons/website-content-management-e1626877811700.png.webp" alt="icons" class="img-fluid">
-                        <h3 class="fw-bolder mt-4 mb-3 text-body-tertiary">Easily Manage Your Content</h3>
-                        <p>Having an easy to use custom content management system is the key to managing your day-to-day data. Whether your project calls for WordPress or a custom CMS, we'll build your website in a way that's easy to manage for all users.</p>
-                    </div>
+                    @php    
+                        $contents = App\Models\Admin\SectionContent::where('section_id', $section_2->id)->get();
+                    @endphp
+
+                    @foreach($contents as $content)
+                        <div class="col-md-4">
+                            <img src="{{asset('assets/image/contents/'.$content->image)}}" alt="icons" class="img-fluid">
+                            <h3 class="fw-bolder mt-4 mb-3 text-body-tertiary">
+                                {{ $content->title }}
+                            </h3>
+                            <p>
+                                {!! $content->description !!}
+                            </p>
+                        </div>
+                    @endforeach
     
                 </div>
             </div>
@@ -124,7 +116,9 @@
         <!-- contact section  -->
         <section id="contact">
             <div class="container">
-                <h1 class="text-center mb-5" style="color:#4eb041; font-family: 'Oswald', sans-serif; font-weight:900;">Get Your Google Ads Campaign <br> Estimate</h1>
+                <h1 class="text-center mb-5" style="width:800px; margin:auto; color:#4eb041; font-family: 'Oswald', sans-serif; font-weight:900;">
+                    {{ $section_3->title }}
+                </h1>
                 <p class="text-center">At Kaizen Digital we’ll make your Google Ads campaign reach its true potential.</p>
                 <h5 class="text-center"><b>Our proposal will show you exactly what we’ll do, how much it’ll cost, and how we’re going <br> to </b> <i>crush your competitors.</i></h5>
                 <h3 class="text-center mb-4" style="color: #ffa600;"><b>Want to get the ball rolling quicker? Call {{$settings->company_phone}}.</b></h3>
@@ -251,8 +245,12 @@
         <!-- Examples section  -->
         <section id="case-studies">
             <div class="container">
-                <h3 class="fw-bolder mb-3 text-center">Need Enterprise-Level Custom Website Design Services?</h3>
-                <p class="mb-3 text-center text-body-tertiary"><b>From simple informational websites to complex, data-rich applications and eCommerce stores, Kaizen Digital has the technical skills and creative chops to match. We’ll work with your team to understand your goals and provide custom solutions to match. We’re located in the USA, do not outsource overseas, and are proud to deliver superior customer service through our dedicated in-house team. Our custom web design projects can range anywhere from $20,000 to $100,000+. If you have a complex development project, talk with our professionals and we’ll provide a free consultation.</p>
+                <h3 class="fw-bolder mb-3 text-center">
+                    {{$section_4->title}}
+                </h3>
+                <p class="mb-3 text-center text-body-tertiary fw-semibold">
+                    {!! $section_4->description !!}
+                </p>
                 <div class="text-center">
                     <a href="{{route('estimate')}}" class="btn btn-warning btn-custom py-2 px-5 mt-5 w-60 fw-bold fs-5">Discuss your website needs with Kaizen Digital <i class="bx bx-chevron-right"></i></a>
                 </div>
@@ -263,137 +261,105 @@
     
     
         <!-- We're WordPress Website Design Experts section  -->
-        <section id="google-ads-works">
-          <div class="container mt-5">
-            
-            <div class="row">
-              <div class="col-md-6">
-                <h2 class="mb-3" style="color:#0f7099; font-family: 'Oswald', sans-serif; font-weight:900;">We're WordPress Website Design Experts</h2>
-                <p class="text-body-tertiary">WordPress is the most widely used content management system (CMS), powering more than 40% of all websites on the internet and over 60% of all websites that use a content management system. With a large number of available plug-ins and an easy-to-use administration, it’s not surprising WordPress is so popular. Many clients come to us already familiar with WordPress, so using it to power their website only makes sense, when applicable. Our WordPress website design services deliver a powerful, easy-to-manage website, that’s aligned with your branding and business goals.</p>
-                <p class="text-body-tertiary">The first step we take with any new client is to determine which platform is best for your project. While WordPress is often a great fit, it’s not always the best option for every client. We’ll walk you through the pros and cons of each possible CMS platform, helping you to make an informed decision. For example, if you’re looking for a powerful online store, using Shopify, BigCommerce, or another eCommerce-specific platform might be best. WordPress does offer these capabilities through WooCommerce but also has limitations for enterprise businesses.</p>
-                <p class="text-body-tertiary">The most important factor when building a WordPress website is developing the site in a way that’s easy to manage. There are great WordPress websites and some that are very difficult to manage due to poor planning, development, and overuse of plug-ins (which also slows your site speed down). At Kaizen Digital, we’re WordPress experts, meaning we have experienced WordPress developers in-house to create a WordPress website that’s both fast on the front-end and easy to manage on the back-end. Our WordPress sites land top scores with Google Core Web Vitals and produce conversion rates far above industry averages.</p>
-                <a href="{{route('estimate')}}" class="btn btn-success btn-custom py-2 px-5 mt-2 w-60 fw-bold fs-5">Get a quote for your project <i class="bx bx-chevron-right"></i></a>
-              </div>
-    
-              <div class="col-md-6">
-                <img src="assets/img/wordpress-website-design-company-1.webp" class="img-fluid" alt="landing" >
-              </div>
-    
-            </div>
-          
-            <!-- ======= Clients Section ======= -->
-            <section id="clients" class="clients py-5">
-                <div class="container">
-                <h5 class="fw-bolder text-center text-secondary p-3">We're Website Design & Development Experts Across All Major Platforms</h5>
-                <div class="swiper-container clients-slider">
-                    <div class="swiper-wrapper">
-            
-                    <div class="swiper-slide">
-                        <div class="client-logo">
-                        <img src="assets/img/clients/wordpress-logo.jpg.webp" class="img-fluid" alt="" data-aos="flip-right">
+        @php
+            $contents = App\Models\Admin\SectionContent::where('section_id', $section_5->id)->get();
+        @endphp
+        
+            <section id="google-ads-works">
+            <div class="container mt-5">
+                @foreach($contents as $content)
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="mb-3" style="color:#0f7099; font-family: 'Oswald', sans-serif; font-weight:900;">
+                            {{$content->title}}
+                        </h2>
+                        <div class="text-body-tertiary">
+                            {!! $content->description !!}
                         </div>
+                        <a href="{{route('estimate')}}" class="btn btn-success btn-custom py-2 px-5 mt-2 w-60 fw-bold fs-5">Get a quote for your project <i class="bx bx-chevron-right"></i></a>
                     </div>
             
-                    <div class="swiper-slide">
-                        <div class="client-logo">
-                        <img src="assets/img/clients/woocommerce-logo.jpg.webp" class="img-fluid" alt="" data-aos="flip-right" data-aos-delay="100">
+                    <div class="col-md-6">
+                        <img src="{{asset('assets/image/contents/'.$content->image)}}" class="img-fluid" alt="{{$section_5->slug}}" >
+                    </div>
+        
+                </div>
+                @endforeach
+            
+                <!-- ======= Clients Section ======= -->
+                <section id="clients" class="clients py-5">
+                    <div class="container">
+                    <h5 class="fw-bolder text-center text-secondary p-3">We're Website Design & Development Experts Across All Major Platforms</h5>
+                    <div class="swiper-container clients-slider">
+                        <div class="swiper-wrapper">
+                            @foreach($clients as $client)
+                            <div class="swiper-slide">
+                                <div class="client-logo">
+                                <img src="{{asset('assets/image/clients/'.$client->image)}}" class="img-fluid" alt="" data-aos="flip-right">
+                                </div>
+                            </div>
+                            @endforeach
                         </div>
-                    </div>
-            
-                    <div class="swiper-slide">
-                        <div class="client-logo">
-                        <img src="assets/img/clients/shopify-logo.jpg.webp" class="img-fluid" alt="" data-aos="flip-right" data-aos-delay="200">
-                        </div>
-                    </div>
-            
-                    <div class="swiper-slide">
-                        <div class="client-logo">
-                        <img src="assets/img/clients/sap-logo.jpg.webp" class="img-fluid" alt="" data-aos="flip-right" data-aos-delay="300">
-                        </div>
-                    </div>
-            
-                    <div class="swiper-slide">
-                        <div class="client-logo">
-                        <img src="assets/img/clients/magento-logo.jpg.webp" class="img-fluid" alt="" data-aos="flip-right" data-aos-delay="400">
-                        </div>
-                    </div>
-            
-                    <div class="swiper-slide">
-                        <div class="client-logo">
-                        <img src="assets/img/clients/bigcommerce-logo.jpg.webp" class="img-fluid" alt="" data-aos="flip-right" data-aos-delay="500">
-                        </div>
-                    </div>
-            
-                    </div>
-                
                     
+                        
+                    </div>
+                    </div>
+                </section>
+            <!-- End Clients Section -->
+        @php
+            $contents = App\Models\Admin\SectionContent::where('section_id', $section_6->id)->get();
+        @endphp
+            @foreach($contents as $content)
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="{{asset('assets/image/contents/'.$content->image)}}" class="img-fluid" alt="landing" >
+                    </div>
+                    <div class="col-md-6">
+                    <h2 class="mb-3" style="color:#0f7099; font-family: 'Oswald', sans-serif; font-weight:900;">
+                        {{$content->title}}
+                    </h2>
+                    <div class="text-body-tertiary">
+                        {!! $content->description !!}
+                    </div>
+                    <a href="{{route('estimate')}}" class="btn btn-success btn-custom py-2 px-5 mt-2 w-60 fw-bold fs-5">eCommerce Website Design Services <i class="bx bx-chevron-right"></i></a>
+                    </div>
+        
                 </div>
-                </div>
+            @endforeach
+            </div>
             </section>
-           <!-- End Clients Section -->
-
-           <div class="row">
-            <div class="col-md-6">
-                <img src="assets/img/ecommerce-web-design-services.jpg.webp" class="img-fluid" alt="landing" >
-            </div>
-            <div class="col-md-6">
-              <h2 class="mb-3" style="color:#0f7099; font-family: 'Oswald', sans-serif; font-weight:900;">We're eCommerce Website Design Pros</h2>
-              <p class="text-body-tertiary">Online sales are booming as US consumers will spend over $1.1 trillion on eCommerce websites this year, up 18% year-over-year. Although this seems like an extremely high number, it’s still only 15% of total retail sales, meaning online sales still have a huge growth curve. While modern business and upstarts have made the transition, many traditional businesses have yet to do so, especially in the B2B space. At Kaizen Digital, our services help to move your business forward, giving you the technology needed to sell basic products online or complex custom services. We also specialize in ERP integrations, API data integrations, and other services needed for enterprise-level businesses. We’ve been development experts since 2004, so if you’re in the market for a new website, look no further. Give our team a call today.</p>
-              <a href="{{route('estimate')}}" class="btn btn-success btn-custom py-2 px-5 mt-2 w-60 fw-bold fs-5">eCommerce Website Design Services <i class="bx bx-chevron-right"></i></a>
-            </div>
-  
-          </div>
-    
-          </div>
-        </section>
+        
 
         <!-- Website Design & Development Case Studies section  -->
         <section id="case-studies">
             <div class="container">
-                <h3 class="fw-bolder mb-3 text-center">Website Design & Development Case Studies</h3>
-                <p class="mb-3 text-center"><b>Want to know more about the website development projects we’ve worked on?</b> <br> Over the last 20+ years, we’ve designed and developed hundreds of websites – growing leads and sales month-over-month.</p>
+                <h3 class="fw-bolder mb-3 text-center">
+                    {{$section_7->title}}
+                </h3>
+                <p class="mb-3 text-center fw-semibold" style="width:800px; margin: auto;">
+                    {!! $section_7->description !!}
+                </p>
+                
                 <div class="row mt-3 pt-5 gy-4">
+                    @php
+                        $contents = App\Models\Admin\SectionContent::where('section_id', $section_7->id)
+                        ->where('status','active')->get();
+                    @endphp
+                    @foreach($contents as $content)
                     <div class="col-md-6">
                         <div class="card" style="height: 500px;">
-                            <img src="assets/img/atlas-oil.jpg.webp" class="card-img-top" alt="...">
+                            <img src="{{asset('assets/image/contents/'.$content->image)}}" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h3 class="card-title fw-bolder" style="color: #0b526e;">Atlas Oil</h3>
-                                <p class="card-text">Atlas Oil came to Kaizen Digital in need of a modern look for their industrial brand. Along with the new look, came custom development and functionality, creating capabilities to order and schedule oil deliveries online. Atlas Oil increased conversions by more than 700% and boosted organic traffic 147%.</p>
+                                <h3 class="card-title fw-bolder" style="color: #0b526e;">
+                                    {{$content->title}}
+                                </h3>
+                                <div class="card-text">
+                                    {!! $content->description !!}
+                                </div>
                             </div>
                         </div>
                     </div>
-    
-                    <div class="col-md-6">
-                        <div class="card" style="height: 500px;">
-                            <img src="assets/img/k2-awards.webp" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h3 class="card-title fw-bolder" style="color: #0b526e;">K2 Awards</h3>
-                                <p class="card-text">A complete redesign, the K2 project included a custom product builder, product configuration tools, and custom ERP integration. The new website increased the conversion rate by more than 25% and helped propel revenue by over 130%.</p>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="col-md-6">
-                        <div class="card" style="height: 500px;">
-                            <img src="assets/img/boat-rv-ecommerce-website.webp" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h3 class="card-title fw-bolder" style="color: #0b526e;">Boat & RV Accessories</h3>
-                                <p class="card-text">Through a redesign and eCommerce SEO campaign, Boat and RV has grown significantly over the last 3 years. Online revenue has increased by 659%, shattering previous sales records.</p>
-                                <br><br>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="col-md-6">
-                        <div class="card" style="height: 500px;">
-                            <img src="assets/img/ac-plastic-ecommerce-development.webp" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h3 class="card-title fw-bolder" style="color: #0b526e;">A&C Plastics</h3>
-                                <p class="card-text">With a simple brochure website, A&C Plastics knew it was time to break into online sales. Partnering with Kaizen Digital, A&C launched a a new website and tackled first-page Google rankings. With a thorough a digital marketing strategy, organic traffic increased over 550% with online transactions up more than 300%.</p>
-                            </div>
-                        </div>
-                    </div>
-    
+                    @endforeach
     
                 </div>
             </div>
@@ -404,40 +370,7 @@
             <div class="container">
                 <div class="google-ads-services mt-3 p-5 mb-3" style="background:#f5f5f5; border-left: 20px solid #f2aa4b;">
                     <div class="row">
-                        <div class="col-md-6">
-                            <h2><b>As an industry-leading web design company, we offer the following services:</b></h2>
-                            <ul style="color: #636363;">
-                                <li style="color: #0f7099;"><h4><b>Custom website design</b></h4></li>
-                                <p class="text-body-tertiary">Our web designers know each website has unique design needs. We’ll design a site that matches your goals and brand guidelines. Every website Kaizen Digital creates is a product of our proprietary creative design processes, designed to ensure your website is unique, visually appealing, and articulate. A website that reflects your brand and conveys your messaging effectively will engage your visitors, converting a larger percentage into customers.</p> 
-                                <li style="color: #0f7099;"><h4><b>Website wireframe creation and planning</b></h4></li>
-                                <p class="text-body-tertiary">We begin each web design project by creating an architecture for the website through a wireframe design process. You’ll work hand-in-hand with our creative digital marketing team to be sure we’ve thought through all website elements needed for success.</p> 
-                                <li style="color: #0f7099;"><h4><b>Competitor research</b></h4></li>
-                                <p class="text-body-tertiary">Understanding your competition is an important part of beating them online. We’ll help you understand what’s working for them and create a plan to perform even better than they are.</p> 
-                                <li style="color: #0f7099;"><h4><b>Front-end HTML / CSS development</b></h4></li>
-                                <p class="text-body-tertiary">Not only will we take you through a creative design process, but we have the in-house front-end development team to code all your HTML, CSS, and Javascript, bringing your website to life on all devices.</p> 
-                                <li style="color: #0f7099;"><h4><b>Back-end website development</b></h4></li>
-                                <p class="text-body-tertiary">Whether you need completely custom functionality, data imports, or a CMS implementation, our back-end development team and programmers are ready for the challenge. And the major plus? They are in-house, in the USA.</p> 
-                                <li style="color: #0f7099;"><h4><b>SEO friendly web design coding & ongoing SEO plans</b></h4></li>
-                                <p class="text-body-tertiary">Kaizen Digital is a year-over-year SEO award winner and industry leader. We build all of our SEO knowledge into our projects, setting you up for a successful SEO campaign post-launch. Need first-page Google rankings to drive traffic to your website? Combine our ongoing SEO plans with development services to make the most of your online potential.</p> 
-                                <li style="color: #0f7099;"><h4><b>Conversion focused design</b></h4></li>
-                                <p class="text-body-tertiary">New visitors are great, but leads and sales are even better! Our conversion-focused design and marketing places an emphasis on your CTA’s (calls to action). Whether you’re looking for visitors to call or fill out an online form, we’ll design a website that performs.</p> 
-                                <li style="color: #0f7099;"><h4><b>Website copywriting and content strategy</b></h4></li>
-                                <p class="text-body-tertiary">To take your site to the next level, we offer website copywriting services. Compelling content will boost conversions, engage visitors and give you an edge over your competition. For ongoing content, our content team is ready to develop a content plan and help you implement the strategy.</p> 
-                                <li style="color: #0f7099;"><h4><b>CMS installation and setup</b></h4></li>
-                                <p class="text-body-tertiary">From WordPress to advanced eCommerce CMS platforms, we’re CMS implementation experts and can guide your business in the right direction. We’re also experienced in CMS customizations and data integrations.</p> 
-                                <li>& much more</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="assets/img/professional-website-design-services.png.webp" class="img-fluid" alt="">
-                            <img src="assets/img/professional-website-design-services.png.webp" class="img-fluid" alt="">
-                            <img src="assets/img/professional-website-design-services.png.webp" class="img-fluid" alt="">
-                            <img src="assets/img/professional-website-design-services.png.webp" class="img-fluid" alt="">
-                            <img src="assets/img/professional-website-design-services.png.webp" class="img-fluid" alt="">
-                            <img src="assets/img/professional-website-design-services.png.webp" class="img-fluid" alt="">
-                            <img src="assets/img/professional-website-design-services.png.webp" class="img-fluid" alt="">
-                            <img src="assets/img/professional-website-design-services.png.webp" class="img-fluid" alt="">
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="text-center">

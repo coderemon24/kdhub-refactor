@@ -25,4 +25,9 @@ class Page extends Model
     {
         return $this->belongsTo(ServiceCategory::class);
     }
+    
+    public function content()
+    {
+        return $this->hasMany(Section::class, 'page_id');
+    }
 }

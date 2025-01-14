@@ -69,39 +69,61 @@
             <a href="/"><img style="max-height:55px;" src="{{asset('assets/image/Settings')}}/{{$settings->company_logo}}"></a>
           </div>
         <ul>
-          <li><a class="nav-link scrollto fw-bold text-uppercase" href=""></a>
-        <li class="dropdown"><a href="#" class="fw-bold text-uppercase"><span>Web services</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="/web-services" class="fw-bold">Web design</a></li>
-              <li><a href="/web-services" class="fw-bold">Web Design ( WordPress) </a></li>
-              <li><a href="/web-services" class="fw-bold">Web Development</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#" class="fw-bold text-uppercase"><span>CRO</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="/ecommerce-optimization-services" class="fw-bold">eCommerce Optimization Services</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#" class="fw-bold text-uppercase"><span>Digital Services</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="/digital-marketing-consultant" class="fw-bold">Digital Marketing Consulting</a></li>
-              <li><a href="/seo-services" class="fw-bold">Search Engine Optimization (SEO) </a></li>
-              <li><a href="/social-media-marketing-management" class="fw-bold">Social Media Marketing Management</a></li>
-              <li><a href="content-marketing-agency" class="fw-bold">Content Marketing</a></li>
-              <li><a href="/google-ads-management-agency" class="fw-bold" >Google Ads Management</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto fw-bold text-uppercase" href="/about-us">About us</a></li>
-          <li><a href="{{route("contact-us")}}" class="fw-bold text-uppercase"><span>Contact us</span> <i></a></i>
-          <li><a href="{{route("blog.all")}}" class="fw-bold text-uppercase"><span>blog</span><i></a></i>
-          {{-- <li class="dropdown"><a href="#" class="fw-bold text-uppercase"><span>About</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#" class="fw-bold">About Us</a></li>
-              <li><a href="#" class="fw-bold">Office & Directions</a></li>
-              <li><a href="#" class="fw-bold">Our Team</a></li>
-              <li><a href="#" class="fw-bold">Careers</a></li>
-            </ul>
-          </li> --}}
+          @php
+              $page_cats = App\Models\ServiceCategory::latest()->get();
+          @endphp
+          
+          @foreach($page_cats as $page_cat)
+            <li class="dropdown">
+              <a href="#" class="fw-bold text-uppercase">
+                <span>{{$page_cat->name}}</span> <i class="bi bi-chevron-down"></i>
+              </a>
+              @php
+                  $pages = App\Models\Admin\Page::where('service_category_id', $page_cat->id)->get();
+              @endphp
+              
+              @if($pages->count() > 0)
+              
+                <ul>
+                  @foreach($pages as $page)
+                    <li>
+                      <a href="{{route('services.page', $page->slug)}}" class="fw-bold">{{$page->page_name}}</a>
+                    </li>
+                  @endforeach
+                </ul>
+                
+              @endif
+            </li>
+          @endforeach  
+            {{-- <li class="dropdown"><a href="#" class="fw-bold text-uppercase"><span>CRO</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="/ecommerce-optimization-services" class="fw-bold">eCommerce Optimization Services</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a href="#" class="fw-bold text-uppercase"><span>Digital Services</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="/digital-marketing-consultant" class="fw-bold">Digital Marketing Consulting</a></li>
+                <li><a href="/seo-services" class="fw-bold">Search Engine Optimization (SEO) </a></li>
+                <li><a href="/social-media-marketing-management" class="fw-bold">Social Media Marketing Management</a></li>
+                <li><a href="content-marketing-agency" class="fw-bold">Content Marketing</a></li>
+                <li><a href="/google-ads-management-agency" class="fw-bold" >Google Ads Management</a></li>
+              </ul>
+            </li> --}}
+            
+            <li>
+              <a class="nav-link scrollto fw-bold text-uppercase" href="/about-us">About us</a>
+            </li>
+            <li>
+              <a href="{{route("contact-us")}}" class="fw-bold text-uppercase">
+                <span>Contact us</span>
+              </a>
+            </li>
+            <li>
+              <a href="{{route("blog.all")}}" class="fw-bold text-uppercase">
+                <span>blog</span>
+              </a>
+            </li>
+          
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>

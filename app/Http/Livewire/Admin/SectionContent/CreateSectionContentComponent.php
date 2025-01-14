@@ -62,6 +62,8 @@ class CreateSectionContentComponent extends Component
         ]);
         
         session()->flash('message', 'Section content has been created successfully!');
+        
+        return redirect()->route('content.create', $this->section_id);
     }
     
     public function render()

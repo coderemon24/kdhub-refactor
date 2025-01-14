@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Admin\Page;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ServiceCategory extends Model
 {
@@ -13,4 +14,9 @@ class ServiceCategory extends Model
         'name',
         'slug'
     ];
+    
+    public function page()
+    {
+        return $this->hasMany(Page::class, 'service_category_id');
+    }
 }

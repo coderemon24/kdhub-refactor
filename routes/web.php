@@ -66,7 +66,7 @@ use App\Http\Livewire\Admin\ServiceCategory\CreateServiceCategoryComponent;
 Route::get('/', HomeComponent::class);
 Route::get('seo-services', SeoServicesComponent::class)->name('seo-services');
 Route::get('google-ads-management-agency', GoogleAdsManagementComponent::class)->name('google-adsmanagement-agency');
-Route::get('web-services', WebsiteServicesComponent::class)->name('web-services');
+Route::get('/services/{slug}', WebsiteServicesComponent::class)->name('services.page');
 Route::get('ecommerce-optimization-services', EcommerceOptimizationServiceComponent::class)->name('ecommerce-optimization-services');
 Route::get('digital-marketing-consultant', DigitalMarketingConsultingComponent::class)->name('digital-marketing');
 Route::get('social-media-marketing-management', SocialMediaMarketingComponent::class)->name('social-media-marketing-management');

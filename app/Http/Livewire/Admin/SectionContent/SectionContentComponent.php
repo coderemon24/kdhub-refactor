@@ -43,8 +43,11 @@ class SectionContentComponent extends Component
     {
         $content = SectionContent::find($id);
         
-        if(file_exists('assets/image/contents/' . $content->image)){
-            unlink('assets/image/contents/' . $content->image);
+        if($content->image)
+        {
+            if(file_exists('assets/image/contents/' . $content->image)){
+                unlink('assets/image/contents/' . $content->image);
+            }
         }
         
         if($content->multi_image){

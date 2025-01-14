@@ -25,4 +25,9 @@ class Section extends Model
     {
         return $this->belongsTo(Page::class);
     }
+    
+    public function content()
+    {
+        return $this->hasMany(SectionContent::class, 'section_id');
+    }
 }
