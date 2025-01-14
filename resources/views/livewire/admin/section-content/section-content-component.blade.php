@@ -34,6 +34,7 @@
                                             <th scope="col">Title</th>
                                             <th scope="col">Subtitle</th>
                                             <th scope="col">Description</th>
+                                            <th scope="col">Status</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -57,8 +58,17 @@
                                                 <td>{{ $data->subtitle }}</td>
                                                 <td>{{ Str::limit(strip_tags($data->description), 50, '...') }}</td>
                                                 <td>
+                                                    <select wire:model="statuses.{{ $data->id }}" 
+                                                            wire:change="updateStatus({{ $data->id }})" 
+                                                            class="form-control">
+                                                        <option value="active">Active</option>
+                                                        <option value="inactive">Inactive</option>
+                                                    </select>
+                                                </td>
+                                                
+                                                <td>
                                                     <a href="{{route('content.edit',$data->id)}}" class="btn btn-success" title="Edit" ><i class="fa fa-edit"></i></a>
-                                                    <a href="#" wire:click.prevent="deleteSection('{{ $data->id }}')" onclick="confirm('Are you sure to delete?') || event.stopImmediatePropagation()"  class="btn btn-danger" title="delete" data-toggle="modal" data-target="#DeleteWhyus"><i class="fa fa-trash"></i></a>
+                                                    <a href="#" wire:click.prevent="deleteContent('{{ $data->id }}')" onclick="confirm('Are you sure to delete?') || event.stopImmediatePropagation()"  class="btn btn-danger" title="delete" data-toggle="modal" data-target="#DeleteWhyus"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
