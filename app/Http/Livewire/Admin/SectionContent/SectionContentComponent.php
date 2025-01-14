@@ -34,6 +34,28 @@ class SectionContentComponent extends Component
             session()->flash('message', 'Status has been updated successfully!');
         }
     }
+    
+    public function deleteContent($id)
+    {
+        $content = SectionContent::find($id);
+        
+        if(file_exists('assets/image/contents/' . $content->image)){
+            unlink('assets/image/contents/' . $content->image);
+        }
+        
+        if($content->multi_image){
+            $images = json_decode($content->multi_image);
+            foreach($images as $image){
+                if(file_exists('assets/image/contents/' . $image)){
+                    unlink('assets/image/contents/' . $image);
+                }
+            }
+        }
+        
+        $content->delete();
+        
+        session()->flash('message', 'Content has been deleted successfully!');
+    }
 
     public function render()
     {

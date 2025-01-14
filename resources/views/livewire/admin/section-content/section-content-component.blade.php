@@ -47,15 +47,15 @@
                                                         <img src="{{ asset('assets/image/contents/'.$data->image) }}" width="50" height="50" alt="Thumbnail">
                                                     @endif
                                                 </td>
-                                                <td>
+                                                <td class="d-flex ">
                                                     @if($data->multi_image != null)
                                                         @foreach (json_decode($data->multi_image) as $image)
-                                                            <img src="{{ asset('assets/image/contents/'.$image) }}" width="50" height="50" alt="Thumbnail">
+                                                            <img class="mr-1" src="{{ asset('assets/image/contents/'.$image) }}" width="50" height="50" alt="Thumbnail">
                                                         @endforeach
                                                     @endif
                                                 </td>
-                                                <td>{{ $data->title }}</td>
-                                                <td>{{ $data->subtitle }}</td>
+                                                <td>{{ Str::limit(strip_tags($data->title), 50, '...') }}</td>
+                                                <td>{{ Str::limit(strip_tags($data->subtitle), 50, '...') }}</td>
                                                 <td>{{ Str::limit(strip_tags($data->description), 50, '...') }}</td>
                                                 <td>
                                                     <select wire:model="statuses.{{ $data->id }}" 
