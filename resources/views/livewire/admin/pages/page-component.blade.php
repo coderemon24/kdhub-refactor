@@ -41,7 +41,7 @@
                                                 <td>{{ Str::limit($data->meta_description, 50, '...') }}</td>
                                                 <td>
                                                     <a href="{{route('page.edit',$data->id)}}" class="btn btn-success" title="Edit" ><i class="fa fa-edit"></i></a>
-                                                    <a href="#" wire:click.prevent="deleteCategory('{{ $data->id }}')" onclick="confirm('Are you sure to delete?') || event.stopImmediatePropagation()"  class="btn btn-danger" title="delete" data-toggle="modal" data-target="#DeleteWhyus"><i class="fa fa-trash"></i></a>
+                                                    <a href="#" wire:click.prevent="deletePage('{{ $data->id }}')" onclick="confirm('Are you sure to delete this?') || event.stopImmediatePropagation()"  class="btn btn-danger" title="delete" data-toggle="modal" data-target="#DeleteWhyus"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
