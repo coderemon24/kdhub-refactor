@@ -3,16 +3,20 @@
 namespace App\Http\Livewire\Admin\SectionContent;
 
 use Livewire\Component;
+use App\Models\Admin\Section;
 use App\Models\Admin\SectionContent;
 
 class SectionContentComponent extends Component
 {
     public $section_id;
+    public $page_id;
     public $statuses = [];
 
     public function mount($id)
     {
         $this->section_id = $id;
+        $getPage = Section::find($id);
+        $this->page_id = $getPage->page_id;
         $this->initializeStatuses();
     }
 

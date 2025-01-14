@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-header bg-primary d-flex justify-content-between align-items-center">
                         <h6 class="m-0 font-weight-bold text-light mt-3">Add New Section</h6>
-                        <a href="{{route('section.index', $service_category_id)}}" class="btn btn-light"><i class="fa fa-arrow-left"></i> Back</a>
+                        <a href="{{route('section.index', $page_id)}}" class="btn btn-light"><i class="fa fa-arrow-left"></i> Back</a>
                     </div>
                     <div class="card-body">
                         

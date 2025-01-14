@@ -3,7 +3,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h5 class="bg-white py-2 mb-3 rounded px-3">Section Name : {{ $section->section_name }}</h5>
+                    <div class="bg-white py-2 mb-3 rounded px-3 d-flex justify-content-between aling-items-center">
+                        <h5 class="float-start">Section Name : {{ $section->section_name }}</h5>
+                        <a href="{{route('manage.section', $page_id)}}" class="btn btn-primary float-right">
+                            <i class="fas fa-arrow-left"></i> Back</a>
+                    </div>
                 </div>
                 <div class="col-md-12">
                     <div class="card">
@@ -49,7 +53,7 @@
                                                 </td>
                                                 <td class="d-flex ">
                                                     @if($data->multi_image != null)
-                                                        @foreach (json_decode($data->multi_image) as $image)
+                                                        @foreach(json_decode($data->multi_image) as $image)
                                                             <img class="mr-1" src="{{ asset('assets/image/contents/'.$image) }}" width="50" height="50" alt="Thumbnail">
                                                         @endforeach
                                                     @endif

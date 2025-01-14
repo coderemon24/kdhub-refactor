@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-header bg-primary d-flex justify-content-between align-items-center">
                         <h6 class="m-0 font-weight-bold text-light mt-3">Add New Section</h6>
-                        <a href="{{route('section.index', $service_cat->id)}}" class="btn btn-light"><i class="fa fa-arrow-left"></i> Back</a>
+                        <a href="{{route('section.index', $page->id)}}" class="btn btn-light"><i class="fa fa-arrow-left"></i> Back</a>
                     </div>
                     <div class="card-body">
                         
@@ -23,7 +23,7 @@
                         
                         <form wire:submit.prevent="storeSection">
                             <div class="form-group">
-                                <label for="section_name">Service Name</label>
+                                <label for="section_name">Section Name</label>
                                 <input type="text" wire:model="section_name" class="form-control" placeholder="Section Name">
                                 @error('section_name') <span class="text-danger">{{$message}}</span> @enderror
                             </div>

@@ -8,12 +8,14 @@ use App\Models\Admin\Section;
 class EditSectionComponent extends Component
 {
     public $section_id;
+    public $page_id;
     public $section_name, $title, $description, $service_category_id,$status,$order;
     
     public function mount($id)
     {
         $this->section_id = $id;
         $section = Section::findOrfail($id);
+        $this->page_id = $section->page_id;
         $this->section_name = $section->section_name;
         $this->title = $section->title;
         $this->description = $section->description;

@@ -7,7 +7,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h5 class="bg-white py-2 mb-3 rounded px-3">Page Name: {{ $page->page_name }}</h5>
+                <div class="bg-white py-2 mb-3 rounded px-3 d-flex justify-content-between aling-items-center">
+                    <h5 class="float-start">Page Name : {{ $page->page_name }}</h5>
+                    <a href="{{route('manage.page', $page_id)}}" class="btn btn-primary float-right">
+                        <i class="fas fa-arrow-left"></i> Back</a>
+                </div>
             </div>
             @foreach($sections as $section)
                 <div class="col-md-3 mb-4">

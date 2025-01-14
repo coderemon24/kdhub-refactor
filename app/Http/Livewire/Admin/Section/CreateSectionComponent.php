@@ -2,32 +2,33 @@
 
 namespace App\Http\Livewire\Admin\Section;
 
-use App\Models\Admin\Section;
 use Livewire\Component;
+use App\Models\Admin\Page;
+use App\Models\Admin\Section;
 use App\Models\ServiceCategory;
 
 class CreateSectionComponent extends Component
 {
-    public $cat_id;
+    public $page_id;
     public $section_name, $title, $description, $order, $status;
     
     public function mount($id)
     {
-        $this->cat_id = $id;
+        $this->page_id = $id;
     }
     
     public function storeSection()
     {
         $this->validate([
             'section_name' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
+            'title' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'order' => 'required|integer',
             'status' => 'required',
         ]);
         
         $section = new Section();
-        $section->service_category_id = $this->cat_id;
+        $section->page_id = $this->page_id;
         $section->section_name = $this->section_name;
         $section->title = $this->title;
         $section->slug = str_replace(' ', '-', strtolower($this->section_name));
@@ -46,7 +47,7 @@ class CreateSectionComponent extends Component
     public function render()
     {
         return view('livewire.admin.section.create-section-component',[
-            'service_cat' => ServiceCategory::findOrfail($this->cat_id),
+            'page' => Page::findOrfail($this->page_id),
         ])->layout('layouts.admin');
     }
 }

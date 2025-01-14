@@ -44,8 +44,8 @@
                                                 <td>{{ ++$key }}</td>
                                                 <td>{{ $data->order }}</td>
                                                 <td>{{ $data->section_name }}</td>
-                                                <td>{{ $data->title }}</td>
-                                                <td>{{ $data->description }}</td>
+                                                <td>{{ Str::limit($data->title, 50, '...') }}</td>
+                                                <td>{{ Str::limit($data->description, 50, '...') }}</td>
                                                 <td>
                                                     <a href="{{route('section.edit',$data->id)}}" class="btn btn-success" title="Edit" ><i class="fa fa-edit"></i></a>
                                                     <a href="#" wire:click.prevent="deleteSection('{{ $data->id }}')" onclick="confirm('Are you sure to delete?') || event.stopImmediatePropagation()"  class="btn btn-danger" title="delete" data-toggle="modal" data-target="#DeleteWhyus"><i class="fa fa-trash"></i></a>
