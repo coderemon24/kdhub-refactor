@@ -114,7 +114,7 @@ Route::middleware(['auth:sanctum', 'authAdmin', 'verified',])->group(function ()
         Route::get('/service-category', ServiceCategoryComponent::class)->name('service.category.index');
         Route::get('/service-category/create', CreateServiceCategoryComponent::class)->name('service.category.create');
         Route::get('/service-category/edit/{id}', EditServiceCategoryComponent::class)->name('service.category.edit');
-        Route::get('/manage-services', ManageServiceCompontent::class)->name('service.manage.show');
+        Route::get('/manage-page-section', ManageServiceCompontent::class)->name('service.manage.show');
         
         //  sections.route
         Route::get('/sections/{id}', SectionComponent::class)->name('section.index');
@@ -126,10 +126,7 @@ Route::middleware(['auth:sanctum', 'authAdmin', 'verified',])->group(function ()
         Route::get('/page/create', CreatePageComponent::class)->name('page.create');
         Route::get('/page/edit/{id}', EditPageComponent::class)->name('page.edit');
         
-        
-        
-        
-        //  sections.contents.route - these routes are not used.
+        //  sections.contents.route 
         Route::get('/section-contents', SectionContentComponent::class)->name('content.index');
         Route::get('/section-contents/create', CreateSectionContentComponent::class)->name('content.create');
         Route::get('/section-contents/edit/{id}', EditSectionContentComponent::class)->name('content.edit');

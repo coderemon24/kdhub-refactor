@@ -4,14 +4,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="service_cat_name">
-                        <h2 class="">{{ $service_cat->name }}</h2>
+                        <h5 class="">Page Name: {{ $page->page_name }}</h5>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h6 class="m-0 font-weight-bold text-primary">All Section</h6>
-                            <a href="{{route('section.create', $service_cat->id)}}" class="btn btn-primary float-right"><i class="fa fa-plus"></i> Add New</a>
+                            <a href="{{route('section.create', $page->id)}}" class="btn btn-primary float-right"><i class="fa fa-plus"></i> Add New</a>
                         </div>
                         <div class="card-body">
                         

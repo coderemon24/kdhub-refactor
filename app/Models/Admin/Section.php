@@ -21,8 +21,8 @@ class Section extends Model
         'status',
     ];
     
-    public function service_category()
+    public function page()
     {
-        return $this->belongsTo(ServiceCategory::class, 'service_category_id');
+        return $this->belongsTo(Page::class);
     }
 }

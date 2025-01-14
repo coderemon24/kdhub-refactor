@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Pages;
 
 use Livewire\Component;
 use App\Models\Admin\Page;
+use Illuminate\Support\Str;
 
 class EditPageComponent extends Component
 {
@@ -31,6 +32,7 @@ class EditPageComponent extends Component
         
         $page = Page::findOrfail($this->page_id);
         $page->page_name = $this->page_name;
+        $page->slug = Str::slug($this->page_name);
         $page->service_category_id = $this->category_id;
         $page->meta_title = $this->meta_title;
         $page->meta_description = $this->meta_description;

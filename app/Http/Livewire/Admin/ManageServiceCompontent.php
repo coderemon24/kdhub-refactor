@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\ServiceCategory;
 use Livewire\Component;
+use App\Models\Admin\Page;
 
 class ManageServiceCompontent extends Component
 {
@@ -11,7 +11,7 @@ class ManageServiceCompontent extends Component
     public function render()
     {
         return view('livewire.admin.manage-service-compontent',[
-            'services' => ServiceCategory::all(),
+            'pages' => Page::all(),
         ])->layout('layouts.admin');
     }
 }
