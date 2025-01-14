@@ -17,6 +17,7 @@ use App\Http\Livewire\Admin\DashboardComponent;
 use App\Http\Livewire\Admin\EditTeamComponenet;
 use App\Http\Livewire\Admin\EditWhyusComponent;
 use App\Http\Livewire\WebsiteServicesComponent;
+use App\Http\Livewire\Admin\ManagePageComponent;
 use App\Http\Livewire\Admin\Pages\PageComponent;
 use App\Http\Livewire\Blog\BlogDetailsComponent;
 use App\Http\Livewire\ContentMarketingComponent;
@@ -29,6 +30,7 @@ use App\Http\Controllers\AdminGenerateOrderInvoice;
 use App\Http\Livewire\Admin\Blog\EditBlogComponent;
 use App\Http\Livewire\Admin\Client\ClientComponent;
 use App\Http\Livewire\Admin\CreateServiceComponent;
+use App\Http\Livewire\Admin\ManageSectionComponent;
 use App\Http\Livewire\GoogleAdsManagementComponent;
 use App\Http\Livewire\Admin\ManageServiceCompontent;
 use App\Http\Livewire\Admin\Pages\EditPageComponent;
@@ -127,9 +129,11 @@ Route::middleware(['auth:sanctum', 'authAdmin', 'verified',])->group(function ()
         Route::get('/page/edit/{id}', EditPageComponent::class)->name('page.edit');
         
         //  sections.contents.route 
-        Route::get('/section-contents', SectionContentComponent::class)->name('content.index');
-        Route::get('/section-contents/create', CreateSectionContentComponent::class)->name('content.create');
+        Route::get('/section-contents/{id}', SectionContentComponent::class)->name('content.index');
+        Route::get('/section-contents/create/{id}', CreateSectionContentComponent::class)->name('content.create');
         Route::get('/section-contents/edit/{id}', EditSectionContentComponent::class)->name('content.edit');
+        Route::get('/manage-pages', ManagePageComponent::class)->name('manage.page');
+        Route::get('/manage-page-section/{id}', ManageSectionComponent::class)->name('manage.section');
         
     });
 

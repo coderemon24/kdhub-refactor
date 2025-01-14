@@ -98,7 +98,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" id="providedServices" class="nav-link @if(request()->routeIs('service.*') || request()->routeIs('content.*') || request()->routeIs('section.*') || request()->routeIs('page.*'))) active @endif">
+                <a href="#" id="providedServices" class="nav-link @if(request()->routeIs('manage.page')||request()->routeIs('manage.section')||request()->routeIs('service.*') || request()->routeIs('content.*') || request()->routeIs('section.*') || request()->routeIs('page.*'))) active @endif">
                     <i class="fas fa-clipboard"></i>
                     <span class="mr-2">Service We Provide</span>
                     <i class="fas fa-angle-down down_angle"></i>
@@ -125,7 +125,7 @@
                         </a>
                     </li>
                     <li class="nav-item list-unstyled">
-                        <a href="{{route("content.index")}}" class="nav-link pl-4 @if(request()->routeIs('content.*')) active @endif">
+                        <a href="{{route("manage.page")}}" class="nav-link pl-4 @if(request()->routeIs('content.*')|| request()->routeIs('manage.section') || request()->routeIs('manage.page')) active @endif">
                             <i class="fas fa-users"></i>
                             <span>Section Contents</span>
                         </a>
