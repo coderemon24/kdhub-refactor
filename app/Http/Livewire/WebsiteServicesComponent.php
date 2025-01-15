@@ -8,6 +8,7 @@ use App\Models\Admin\Page;
 use App\Models\CompanyStat;
 use App\Models\Admin\Client;
 use App\Models\Admin\Section;
+use App\Models\Admin\SectionContent;
 
 class WebsiteServicesComponent extends Component
 {
@@ -58,6 +59,8 @@ class WebsiteServicesComponent extends Component
     //  mount
     public $page_slug;
     public $sections = [];
+    public $sectionIds = [];
+    public $contents;
     
     public function mount($slug)
     {
@@ -74,10 +77,16 @@ class WebsiteServicesComponent extends Component
                             ->where('status', 'active')
                             ->orderBy('order', 'asc')->get();
         }
-        // if(count($this->sections) == 0)
-        // {
-        //     dd($this->sections);
-        // }
+        if(count($this->sections) !== 0)
+        {
+            foreach($this->sections as $section)
+            {
+                $this->sectionIds[] = $section->id;
+            }
+        }
+        
+        $this->contents = SectionContent::whereIn('section_id', $this->sectionIds)
+                            ->where('status', 'active')->get();
         // dd($this->sections);
         
         return view('livewire.website-services-component',[
@@ -85,6 +94,7 @@ class WebsiteServicesComponent extends Component
             'page' => $page,
             'clients' => Client::all(),
             'sections' => $this->sections,
+            'contents' => $this->contents,
         ])->layout('layouts.base');
     }
 }
