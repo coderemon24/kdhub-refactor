@@ -58,7 +58,7 @@ class WebsiteServicesComponent extends Component
     
     //  mount
     public $page_slug;
-    public $sections = [];
+    public array $sections = [];
     public $sectionIds = [];
     public $contents;
     
@@ -73,16 +73,34 @@ class WebsiteServicesComponent extends Component
         
         if($page != null)
         {
-            $this->sections = Section::where('page_id', $page->id)
+            $all_section = Section::where('page_id', $page->id)
                             ->where('status', 'active')
                             ->orderBy('order', 'asc')->get();
-        }
-        if(count($this->sections) !== 0)
-        {
-            foreach($this->sections as $section)
+                            
+            foreach($all_section as $section)
             {
+                $this->sections[$section->order] = $section;
                 $this->sectionIds[] = $section->id;
             }
+        }
+        
+        $sec_count = count($this->sections);
+        if($sec_count !== 0)
+        {
+            $get_diff = 12 - $sec_count;  // 2
+            if($get_diff > 0)
+            {
+                for($i = 0; $i < $get_diff; $i++)
+                {
+                    $empty = [
+                        'id' => 55,
+                        'title' => '',
+                    ];
+                    array_push($this->sections, $empty);
+                }
+            }
+            
+            
         }
         
         $this->contents = SectionContent::whereIn('section_id', $this->sectionIds)
