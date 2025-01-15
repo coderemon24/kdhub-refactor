@@ -28,7 +28,7 @@ class EditSectionComponent extends Component
     {
         $this->validate([
             'section_name' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
+            'title' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'order' => 'required|integer',
             'status' => 'required',
