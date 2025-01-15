@@ -4,6 +4,9 @@
 @endphp
 
 <div>
+    
+    @section("title", $page->meta_title )
+    
     @if(count($sections) === 0)
         <div class="container">
             <div class="row">

@@ -7,8 +7,8 @@
     <section id="contact">
         <div class="container">
             <div class="row">
-                <div class="mb-3 col-lg-12">
-                    <h2 class="mb-3 text-center service_title" >
+                <div class="mb-5 col-lg-12">
+                    <h2 style="margin-bottom:1rem !important" class=" text-center service_title" >
                         <b>Contact Us</b>
                     </h2>
                     <p class="mx-auto text-center" style="width: 800px">
@@ -18,7 +18,7 @@
                 <div class="mt-2 col-lg-6">
                     <div class="foot_left">
                         <div class="head_office">
-                            <h3 class="text-success fw-bolder">
+                            <h3 class="text-dark fw-bolder">
                                 Head Office [Main Branch, Dhaka]
                             </h3>
                             <p class="cont_addr" style="width: 300px">
@@ -29,7 +29,7 @@
                         </div>
                         <div class="mt-5 row">
                             <div class="col-md-6">
-                                <h3 class="text-success fw-bolder">
+                                <h3 class="text-dark fw-bolder">
                                     Phone Number:
                                 </h3>
                                 <p class="phone">+880 1934453979</p>
@@ -39,13 +39,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div>
-                                    <h3 class="text-success fw-bolder">
+                                    <h3 class="text-dark fw-bolder">
                                         Office Time:
                                     </h3>
                                     <p class="phone">Saturday to Friday: 10:00 AM to 7:00 PM</p>
                                 </div>
                                 <div>
-                                    <h3 class="text-success fw-bolder">
+                                    <h3 class="text-dark fw-bolder">
                                         E-mail:
                                     </h3>
                                     <p class="phone">info@kaizendigitalhub.com</p>

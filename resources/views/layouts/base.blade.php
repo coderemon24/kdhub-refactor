@@ -9,12 +9,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>{{$settings->company_name}} - Home</title>
+  <title>@yield('title','Kaizen Digital Hub')</title>
  
-  <meta content="Kaizen Digital Hub offers expert digital marketing services including SEO, PPC, and social media marketing to help businesses increase online visibility, drive traffic, and boost conversions. Contact us today to grow your brand" name="description">
-  <meta content="Digital marketing services, SEO services, PPC management, social media marketing, online marketing, search engine optimization, digital marketing agency, pay-per-click advertising, website traffic, brand visibility, conversion optimization, online business growth, Kaizen Digital Hub" name="keywords">
-<meta name="robots" content="index, follow">
-    <meta name="author" content="Kaizen Digital Hub">
+  <meta name="description" content="@yield('description','Kaizen Digital Hub offers expert digital marketing services including SEO, PPC, and social media marketing to help businesses increase online visibility, drive traffic, and boost conversions. Contact us today to grow your brand')">
+  <meta name="keywords"  content="Digital marketing services, SEO services, PPC management, social media marketing, online marketing, search engine optimization, digital marketing agency, pay-per-click advertising, website traffic, brand visibility, conversion optimization, online business growth, Kaizen Digital Hub">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Kaizen Digital Hub">
     
   <!-- Favicons -->
   <link href="{{asset('assets/image/Settings')}}/{{$settings->company_favicon}}" rel="icon">               
@@ -55,7 +55,8 @@
   <!-- ======= Header ======= -->
   <div class="" style="background:#1e6279;">
     <div class="info d-flex justify-between text-light d-none d-md-flex align-items-center">
-      <p class="my-2 mx-2"><i class="bx bx-play p-1" style="border: 1px solid #fff; border-radius:50%;"></i> Kaizen Digital Has Been Named "Best SEO Services" of 2024 by Forbes Advisor</p>
+      <p class="my-2 mx-2"><i class="bx bx-play p-1" style="border: 1px solid #fff; border-radius:50%;"></i> 
+        Kaizen Digital Hub a concern of <a target="_blank" href="https://kaizenitbd.com">Kaizen IT Ltd.</a></p>
       <p class="my-2 mx-2 ms-auto">Need an Expert Team? <i class="bx bx-phone p-1" style="border: 1px solid #fff; border-radius:50%;"></i> {{$settings->company_phone}}</p>
     </div>
   </div>
@@ -158,104 +159,24 @@
         </div>
       </div>
       <div class="row section-footer p-5">
-            <div class="col-md-3 footer-column">
-                <h5>SEO Services</h5>
+         @php
+            $page_cats = App\Models\ServiceCategory::with('page')->get();
+         @endphp
+         @foreach($page_cats as $page_cat)
+            <div class="col-md-3 footer-column mb-4">
+                <h5>{{$page_cat->name}}</h5>
+                
                 <ul>
-                    <li><a href="/seo-services">Ecommerce SEO</a></li>
-                    <li><a href="/seo-services">SEO Audits</a></li>
-                    <li><a href="/seo-services">SEO Packages</a></li>
-                    <li><a href="/seo-services">SEO Consulting</a></li>
-                    <li><a href="/seo-services">SEO Copywriting</a></li>
-                    <li><a href="/seo-services">Enterprise SEO</a></li>
-                    <li><a href="/seo-services">Google SEO</a></li>
-                    <li><a href="/seo-services">SEO Agency</a></li>
-                    <li><a href="/seo-services">Amazon SEO</a></li>
-                    <li><a href="/seo-services">SEO Migration</a></li>
-                    <li><a href="/seo-services">Link Building</a></li>
-                    <li><a href="/seo-services">Local SEO</a></li>
-                    <li><a href="/seo-services">SEO for Shopify</a></li>
-                    <li><a href="/seo-services">SEO for WordPress</a></li>
-                    <li><a href="/seo-services">SEO for BigCommerce</a></li>
-                    <li><a href="/seo-services">SEO for Magento</a></li>
-                    <li><a href="/seo-services">Google Penalty Recovery</a></li>
+                  @foreach($page_cat->page as $page)
+                    <li>
+                      <a href="{{route('services.page', $page->slug)}}">{{$page->page_name}}</a>
+                    </li>
+                  @endforeach
                 </ul>
             </div>
-            <div class="col-md-3 footer-column">
-                <h5>PPC Management</h5>
-                <ul>
-                    <li><a href="/google-ads-management-agency">Google Ads Management Services</a></li>
-                    <li><a href="/google-ads-management-agency">Google Shopping Management</a></li>
-                    <li><a href="/google-ads-management-agency">PPC Consulting</a></li>
-                    <li><a href="/google-ads-management-agency">Google Premier Partner</a></li>
-                    <li><a href="/ecommerce-optimization-services">eCommerce PPC</a></li>
-                    <li><a href="/google-ads-management-agency">Google Ads Consultant</a></li>
-                </ul>
-                <h5 class="mt-5">Conversion Rate Optimization</h5>
-                <ul>
-                    <li><a href="/ecommerce-optimization-services">CRO Services</a></li>
-                    <li><a href="/ecommerce-optimization-services">eCommerce Optimization Services</a></li>
-                </ul>
-                <h5 class="mt-5">Offices & Locations</h5>
-                <ul>
-                    <li><a href="/about-us">Akron Ohio Office</a></li>
-                    <li><a href="/about-us">Columbus SEO</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 footer-column">
-                <h5>Web Design</h5>
-                <ul>
-                    <li><a href="/web-services">Corporate Website Design</a></li>
-                    <li><a href="/web-services">WordPress Website Design</a></li>
-                    <li><a href="/web-services">WooCommerce Development</a></li>
-                    <li><a href="/web-services">White Label Website Design</a></li>
-                    <li><a href="/ecommerce-optimization-services">B2B eCommerce Web Design</a></li>
-                    <li><a href="/web-services">Website Design Consulting</a></li>
-                    <li><a href="/web-services">Custom Website Design</a></li>
-                </ul>
-                <h5 class="mt-5">eCommerce Web Design</h5>
-                <ul>
-                    <li><a href="/web-services">Shopify Website Design</a></li>
-                    <li><a href="/web-services">BigCommerce Website Design</a></li>
-                </ul>
-                <h5 class="mt-5">PPC By Industry</h5>
-                <ul>
-                    <li><a href="/ecommerce-optimization-services">PPC for eCommerce</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 footer-column">
-                <h5>SEO By Industry</h5>
-                <ul>
-                    <li><a href="/seo-services">B2B SEO</a></li>
-                    <li><a href="/seo-services">Law Firm SEO</a></li>
-                    <li><a href="/seo-services">SEO for Moving Companies</a></li>
-                    <li><a href="/seo-services">Medical SEO</a></li>
-                    <li><a href="/seo-services">Financial SEO</a></li>
-                    <li><a href="/seo-services">Hospital & Healthcare SEO</a></li>
-                    <li><a href="/seo-services">HVAC SEO</a></li>
-                    <li><a href="/seo-services">SEO for Plastic Surgeons</a></li>
-                    <li><a href="/seo-services">SEO for Self Storage</a></li>
-                </ul>
-                <h5 class="mt-5">Featured Guides</h5>
-                <ul>
-                    <li><a href="/seo-services">SEO Companies</a></li>
-                    <li><a href="/seo-services">SEO Pricing</a></li>
-                    <li><a href="/ecommerce-optimization-services">eCommerce Website Pricing</a></li>
-                    <li><a href="/digital-marketing-consultant">Guerrilla Marketing Tips</a></li>
-                    <li><a href="/web-services">Increase Website Sales</a></li>
-                    <li><a href="/ecommerce-optimization-services">eCommerce Features</a></li>
-                    <li><a href="/web-services">Website Design Pricing</a></li>
-                </ul>
-            </div>
+         @endforeach
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="row mt-3">
+        <div class="row mt-3">
               <div class="col-lg-6">
                 <div class="p-5" style="background: #0371a3; border-radius:10px;">
                   <h3><b>Be Social</b></h3>
@@ -272,7 +193,6 @@
                 <h3><b>Copyright & Credits</b></h3>
                 <p>Website Copyright &copy; {{date("Y")}} {{$settings->company_name}}.</p>
               </div>
-            </div>
         </div>
     </div>
   </footer>
