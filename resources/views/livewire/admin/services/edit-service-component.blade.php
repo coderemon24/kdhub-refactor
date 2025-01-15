@@ -27,6 +27,12 @@
                     </div>
                     
                     <div class="form-group">
+                        <label for="file">Page URL</label>
+                        <input type="url" id="file" class="form-control @error('page_link') is-invalid @enderror mb-2" wire:model='page_link'>
+                        @error('page_link') <span class="text-danger">{{$message}}</span> @enderror
+                    </div>
+                    
+                    <div class="form-group">
                         <label for="color">Description</label>
                         <textarea  wire:model.defer="description" class="form-control @error('description') is-invalid @enderror mb-2" cols="30" rows="5"></textarea>
                         @error('description') <span class="text-danger">{{$message}}</span> @enderror

@@ -14,6 +14,7 @@ class CreateServiceComponent extends Component
     public $name;
     public $description;
     public $image;
+    public $page_link;
 
     public function render()
     {
@@ -26,11 +27,13 @@ class CreateServiceComponent extends Component
             'name'=>'required|string|max:255',
             'description'=>'required|string',
             'image'=>'required',
+            'page_link' => 'nullable|url'
         ]);
         $data = new Service();
         $data->name = $this->name;
         $data->slug = strtolower(str_replace(' ', '-', $this->name));
         $data->description = $this->description;
+        $data->page_link = $this->page_link;
 
         $imagename = Carbon::now()->timestamp . '.' .$this->image->extension();
         

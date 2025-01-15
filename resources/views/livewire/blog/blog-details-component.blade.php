@@ -1,3 +1,6 @@
+@php
+    $setting = App\Models\Setting::first();
+@endphp
 <div>
     <div style="background: #000">
         <section id="service_details_top">
@@ -8,10 +11,10 @@
                             <h1 class="service-title">{{$blog?->title}}</h1>
                             
                             <div class="social-links">
-                                <a href="#" class="social twitter"><i class="bx bxl-twitter"></i></a>
-                                <a href="#" class="social facebook"><i class="bx bxl-facebook"></i></a>
-                                <a href="#" class="social instagram"><i class="bx bxl-instagram"></i></a>
-                                <a href="#" class="social linkedin"><i class="bx bxl-linkedin"></i></a>
+                                <a target="_blank" href="{{$setting?->twitter_link}}" class="social twitter"><i class="bx bxl-twitter"></i></a>
+                                <a target="_blank" href="{{$setting?->facebook_link}}" class="social facebook"><i class="bx bxl-facebook"></i></a>
+                                <a target="_blank" href="{{$setting?->instagram_link}}" class="social instagram"><i class="bx bxl-instagram"></i></a>
+                                <a target="_blank" href="{{$setting?->linkedin_link}}" class="social linkedin"><i class="bx bxl-linkedin"></i></a>
                             </div>
                         </div>
                     </div>

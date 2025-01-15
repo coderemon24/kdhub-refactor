@@ -88,7 +88,7 @@
         <div class="row">
           @foreach($services as $service)
             <div class="col-md-4">
-                <a href="{{route('service.details', $service->slug)}}" class="service_inner d-block">
+                <a href="{{$service->page_link}}" class="service_inner d-block">
                     <div class="service_icon">
                       <img height="100%" width="100%" src="{{asset('assets/image/Services')}}/{{$service->image}}" alt="{{$service->slug}}">
                     </div>
@@ -265,27 +265,18 @@
         </div>
 
         <div class="row">
-          <div class="col-xl-4 col-lg-4 col-md-6" >
-            <div class="member p-5 text-start" data-aos="fade-up" id="article-1">
-              <h3 class="fw-bolder h2 mb-3">eCommerce Website Features</h3>
-              <p>The power of your eCommerce website often is behind the scenes. The ability to easily manage your content, run promotions, and keep content.</p>
-            </div>
-          </div>
-
-          <div class="col-xl-4 col-lg-4 col-md-6">
-            <div class="member p-5 text-start"  data-aos="fade-up" data-aos-delay="100" id="article-2">
-              <h3 class="fw-bolder h2 mb-3">eCommerce SEO Guide</h3>
-              <p>Commerce SEO is complex. With hundreds of categories, products, and landing pages, where does an SEO campaign begin? Gain insights into our approach at making an SEO campaign successful</p>
-            </div>
-          </div>
-
-          <div class="col-xl-4 col-lg-4 col-md-6">
-            <div class="member p-5 text-start" data-aos="fade-up" data-aos-delay="200" id="article-3">
-              <h3 class="fw-bolder h2 mb-3">Listen In: Search Authority Podcast</h3>
-              <p>Justin Smith (CEO) & Jason Dutt (President) discuss SEO and online marketing each week on Search Authority. Give it a listen!</p>
-            </div>
-          </div>
-
+          @foreach($blogs as $blog)
+              <div class="col-md-3 mb-4">
+                  <a href="{{ route('blog.details', $blog->slug) }}" class="card d-block blog-single-inner">
+                      <img width="100%" height="200" class="card-img-top" src="{{ asset('assets/image/Blog/'.$blog->image)}}" alt="">
+                      <div class="card-body">
+                          <h6 class="card-title">
+                              {{Str::limit($blog->title, 60, '...') }}
+                          </h6>
+                      </div>
+                  </a>
+              </div>
+          @endforeach
         </div>
 
       </div>

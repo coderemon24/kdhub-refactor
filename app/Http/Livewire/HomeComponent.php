@@ -2,12 +2,13 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Admin\Client;
+use App\Models\Blog;
+use App\Models\WhyUs;
 use App\Models\People;
 use App\Models\Service;
-use App\Models\WhyUs;
-use GuzzleHttp\Psr7\Request;
 use Livewire\Component;
+use App\Models\Admin\Client;
+use GuzzleHttp\Psr7\Request;
 
 class HomeComponent extends Component
 {   
@@ -19,7 +20,8 @@ class HomeComponent extends Component
         return view('livewire.home-component', [
             'clients'=>$clients,  
             'whyUs'=>$whyUs,
-            'services'=>$services
+            'services'=>$services,
+            'blogs' => Blog::all(),
             ])->layout('layouts.base');
     }
 }

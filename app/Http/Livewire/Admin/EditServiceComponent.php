@@ -16,6 +16,7 @@ class EditServiceComponent extends Component
     public $newImage;
     public $title;
     public $details;
+    public $page_link;
 
     public function mount($id){
         $data = Service::find($id);
@@ -23,6 +24,7 @@ class EditServiceComponent extends Component
         $this->description = $data->description;
         $this->image = $data->image;
         $this->service_id = $data->id;
+        $this->page_link = $data->page_link;
     }
     public function render()
     {
@@ -35,12 +37,14 @@ class EditServiceComponent extends Component
         'name' => 'required|string|max:255',
         'description' => 'required|string',
         'newImage' => 'nullable|image|max:2048', // Validate new image if present
+        'page_link' => 'nullable|url'
     ]);
 
     $data = Service::find($this->service_id);
     $data->name = $this->name;
     $data->slug = strtolower(str_replace(' ', '-', $this->name));
     $data->description = $this->description;
+    $data->page_link = $this->page_link;
     if ($this->newImage) {
         if (file_exists('assets/image/Services/' . $data->image)) {
             @unlink('assets/image/Services/' . $data->image);
