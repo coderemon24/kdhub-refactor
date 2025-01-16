@@ -6,6 +6,7 @@
 <div>
     
     @section("title", $page->meta_title )
+    @section('description', $page->meta_description)
     
     @if(count($sections) === 0)
         <div class="container">
